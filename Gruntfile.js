@@ -79,6 +79,8 @@ module.exports = function(grunt) {
                 'application/js/libs/angular-*.min.js',
                 'application/js/libs/angulardir-*.js',
                 'application/js/main.js',
+                'application/js/services.js',
+                'application/js/controllers/base/*.js',
                 'application/js/dependencyproviders.js',
                 'application/js/directives/*.js',
                 'application/js/filters.js',
