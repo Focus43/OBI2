@@ -1,0 +1,2119 @@
+/* General Style */
+
+body, html { font-size: 100%; 	padding: 0; margin: 0; overflow-x: hidden; width: 100%;}
+input, button, select, textarea { font-size: 14px; }
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+
+body, input, button, select, textarea {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    color: #666;
+    background: #e7e7e7;
+}
+
+body#search-page {
+    background: #333 url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/tropi.jpg') fixed top center;
+    background-size: cover;
+}
+
+.container { 
+	background: #e6e7e8;
+	max-width: 1020px;
+	margin: 0 auto;
+	padding: 20px;
+	}
+
+.text-page {
+	background: #fff;
+	border: 1px solid #ccc;
+	}
+	
+#content-wrapper {
+	margin : 20px auto;
+	}
+a {
+	color: #fff;
+	text-decoration: none;
+	
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+li { list-style: none;}
+ul { margin: 0px; }
+
+h1, h2, h3, h4 {
+	margin: 0px;
+	padding: 0px;
+	}
+	
+.tac, table .tac { text-align: center;}
+.tal, table .tal { text-align: left;}
+.tar, table .tar { text-align: right;}
+
+.table { margin-bottom: 0px;}
+
+.clear { clear: both;}
+
+.big-bold {
+	font-size: 44px;
+	line-height: 48px;
+	font-weight: bold;
+	}
+	
+button {
+	border: none;
+	background: #47a3da;
+	color: #fff;
+	padding: 10px 15px;
+	display: block;
+	width: auto;
+	cursor: pointer;
+	font-size: 0.8em;
+	
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+button:hover {
+	background: #258ecd;
+}
+
+.btn {
+	text-shadow: none;
+	}
+
+.alert .close { float: right; cursor: pointer;}
+
+
+/* 
+Main Desktop Navigation
+-------------------------*/
+	
+#ob-fixedheader {
+	background-color: #333;
+	color: #fff;
+	width: 100%;
+	padding: 0px;
+	}
+.ob-main-nav-bar{
+	width: 100%;
+	height: 45px;
+	}
+	
+#nav_stick {
+	}
+
+#my-trip {
+	float: right;
+	margin: 30px 20px 0 0;
+	}
+#my-trip a:hover {
+	color: #ccc;
+	}
+	
+ul#desktop-nav-links {
+	margin: 0px;
+	max-width: 800px;
+	}
+	
+ul#desktop-nav-links li {
+	list-style: none;
+	color: #666;
+	display: inline;
+	}
+	
+ul#desktop-nav-links li a{	
+	float: left;
+	display: block;
+	text-align: center;
+	padding: 0px 20px;
+	line-height: 45px;
+	height: 45px;
+	}
+ul#desktop-nav-links li.active a{
+	font-weight: bold;
+	}		
+ul#desktop-nav-links li a:hover {	
+	color: #ccc;
+	}
+
+ul#desktop-nav-links li a:focus {
+	color: #fff;
+	text-decoration: none;
+	}
+	
+
+/*
+slide menu Mobile Navigation
+----------------------------*/
+
+ul#mobile-nav-links	li{
+	margin: 0px;
+	list-style: none;
+	}
+
+ul#mobile-nav-links	{
+	margin: 0px;
+	}
+
+			
+#showRight { 
+	float: right;
+	display: block;
+	font-size: 24px;
+	height: 93px;
+	line-height: 93px;
+	padding: 0px 8px;
+	width: 93px;
+	}
+#showRight i {
+	font-size: 35px;
+	line-height: 93px;
+	}
+	 
+#hideRight {
+	width: 100%;
+	text-align: left;
+	}
+#hideLeft {
+	width: 100%;
+	text-align: right;
+	}
+	
+.cbp-spmenu {
+	background: #e6e7e8;
+}
+
+#cbp-spmenu-s1 {
+	position: absolute;
+	}
+#cbp-spmenu-s2 {
+		position: fixed;
+}
+
+.cbp-spmenu h3 {
+	color: #ddd;
+	font-size: 18px;
+	padding: 10px;
+	margin: 0;
+	font-weight: 300;
+	background: #0b2b3e;
+}
+
+.cbp-spmenu a {
+	display: block;
+	color: #666;
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+.cbp-spmenu a:hover {
+	background: #ccc;
+}
+
+.cbp-spmenu a:active {
+	background: #afdefa;
+	color: #47a3da;
+}
+
+.cbp-spmenu-vertical {
+	width: 240px;
+	top: 0;
+	z-index: 2000;
+}
+
+.cbp-spmenu-vertical a {
+	border-bottom: 1px solid #ddd;
+	padding: 0px;
+	font-size: 14px;
+}
+
+#cbp-spmenu-s2 a {
+	border-bottom: 1px solid #ddd;
+	padding: 10px;
+	font-size: 18px;
+}
+
+.cbp-spmenu-left {
+	left: -240px;
+}
+
+.cbp-spmenu-right {
+	right: -240px;
+}
+
+.cbp-spmenu-left.cbp-spmenu-open {
+	left: 0px;
+}
+
+.cbp-spmenu-right.cbp-spmenu-open {
+	right: 0px;
+}
+
+.cbp-spmenu {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#menu-overlay {
+	height: 100%;
+	width: 100%;
+	z-index: 1000;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	display: none;
+	background: rgb(51,51,51);	
+	background: rgba(0,0,0,.8);
+	}
+	
+#loading-overlay {
+	height: 100%;
+	width: 100%;
+	z-index: 1000;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/pre-load.gif') center center no-repeat;
+	background-color: rgb(51,51,51);	
+	background-color: rgba(0,0,0,.8);
+}
+
+#menu-overlay.show, #loading-overlay.show  { display: block;} 	
+
+#modal-overlay {
+	display: block;
+
+	height: 100%;
+	width: 100%;
+	z-index: 1000;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/pre-load.gif') center center no-repeat;
+	background-color: rgb(51,51,51);	
+	background-color: rgba(0,0,0,.8);
+}
+
+#modal-content {
+	width: 400px;
+	height : 400px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin: -200px 0 0 -200px;
+	background: #fff;
+	color: #333;
+	/* padding: 10px 40px; */
+	overflow: hidden;
+
+	}
+#modal-content #dynamic-content {
+  height: 85%;
+  width: 95%;
+  margin: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#dynamic-content.map {
+  height: 88% !important;
+  width: 95% !important;
+  overflow: hidden;
+}
+#dynamic-content.map .wrapper {
+  widht: 100%;
+  height: 100%;
+}
+
+#dynamic-content .hotel-rules {
+	height: 100%;
+	color: #333;
+	background: #fff;
+	}
+
+#dynamic-content .hotel-rules h2 {
+	font-size: 22px;
+	line-height: 28px;
+	margin: 20px 0 0 0;
+	
+	}
+#modal-close {
+	font-size: 18px;
+	color: #666;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	border-bottom: 1px solid #f5f5f5;
+	display: block;
+	margin: 0 0 10px 10px;
+	cursor: pointer;
+	}	
+/*
+Homepage search box
+---------------------*/
+
+.container.search h1 { 
+	line-height: 45px;
+
+	}
+h1 .icon {
+	width: 35px;
+	height: 45px;
+	display:inline-block;
+	margin-right: 20px;
+}
+
+h1 .icon.hotel {
+	background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/search-icon.png') center center no-repeat;
+}
+
+.ob-icon {
+	float: right;
+	margin: 0 5px;
+	width: 30px;
+	height: 30px;
+	display: block;
+	}
+	
+.ob-icon.smoking{
+  background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/smokingicon.png') center center no-repeat;
+}
+.ob-icon.nonsmoking{
+  background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/non-smoking.png') center center no-repeat;
+}
+
+.container.search {
+	background: transparent;
+	width: 767px;
+	}
+.container.search h1 { 
+	color: #fff;
+	}
+
+
+
+.container.search .suggestions ul {
+  margin: 10px 20px;
+  padding: 10px 0;
+}
+
+.container.search .suggestions ul li {
+  margin: 10px 2px;
+  border-bottom: 1px solid #fff;
+}
+
+.container.search .suggestions ul li a {
+  color: white;
+  font-weight: 300;
+}
+
+#fullwidth-search fieldset{
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	}	
+#fullwidth-search .location-wrap {
+	width: 100%;
+	}
+#fullwidth-search .location-wrap input {
+	width: 98.5%;
+	}
+#fullwidth-search label {
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	}
+	
+#fullwidth-search .third {
+	float: left;
+	width: 33.33%;
+	}
+#fullwidth-search .third input,#fullwidth-search .third select {
+	width: 95%;
+	}
+
+#fullwidth-search.ob-form .btn.action {
+	padding: 0px 20px;
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 15px 0 0;
+	}
+	
+.alert { margin-top: 20px;}
+.alert button:hover { background: transparent;}	
+
+#checkin-date, #checkout-date {
+	position: relative;
+	background: transparent;
+	border: none;
+	border-left : 2px solid #ccc;
+	width: 40px;
+	height: 26px;
+	border-radius: 0px;
+	margin: -10px 0 0px -40px;
+	box-shadow: none;
+	}
+#checkin-date:active, #checkout-date:active { box-shadow: none; }
+
+.typeahead { cursor: pointer;} 
+/*
+Side bar style
+----------------------*/
+.side-box {
+	margin: 0 0 20px 0;
+	}
+.side-box h3 {
+	font-size: 18px;
+	line-height: 24px;
+	text-transform: uppercase;
+	padding: 3px 0px;
+	margin: 0 0 10px 0;
+	border-bottom: 1px solid #666;
+	}
+
+.side-box-content {
+	margin-right: 20px;
+	}
+	
+#sidebar-append .side-box-content {
+	padding: 20px;
+	}
+#sidebar-append	.side-box {
+	margin: 0px;
+	}
+#sidebar-append	.side-box h3 { 
+	padding: 3px 20px;
+	margin: 0px;
+	}		
+ul.side-links li{
+	color: #666;
+	margin: 8px 0;
+	}
+ul.side-links a{
+	color: #666;
+	}
+
+.sidebarcal-icon {
+  	float: right;
+    margin: 0 5px 0 0;
+    position: relative;
+    top: -33px;
+	}
+
+.suggestions {
+	background: rgba(11, 43, 62, 0.8);
+	padding: 10px;
+	font-size: 14px;
+	margin: 0 0 20px 0;
+	border: 1px solid #fff;
+}
+
+.suggestions a { color: #ccc; }
+.suggestions a:hover { color: #fff; }
+
+/*
+FORM Styles
+----------------------*/
+.ob-form input, .ob-form select, .ob-form select option{
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	height: 30px;
+	line-height: 30px;
+	color: #666;
+	border: 1px solid #ddd;
+	padding: 4px 6px;
+
+}
+
+.search .ob-form input, .search .ob-form select, .search .ob-form select option{
+	background-color: #dfe3e6;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #ddd;	
+	padding: 0px 6px;
+}
+.search .ob-form select {
+	padding-top: 10px;
+	}
+
+
+.side-box-content .ob-form input, .side-box-content .ob-form select, .side-box-content .ob-form select option{
+	background-color: #fff;
+	width: 200px;
+}
+#pick-room-form input, #pick-room-form select, #pick-room-form select option{
+	background-color: #fff;
+	width: 115px;
+}
+
+::-webkit-input-placeholder {
+   color: #000;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #000;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #000;
+}
+
+:-ms-input-placeholder {  
+   color: #000;
+}
+
+.side-box .ob-form input, .side-box .ob-form select {
+		width: 100%;
+		margin: 0 auto;
+		margin-bottom: 10px;
+}
+
+.ob-form .btn.action {
+	padding: 0px 20px;
+	float: right;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	}
+
+.btn.action.roomdetails {
+	padding: 2px 5px;
+	font-size: 12px;
+	}
+	
+		
+/*
+Main Body Content
+--------------------*/
+.btn.action {
+	text-shadow: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	padding: 10px 20px;
+	font-size: 18px;
+	border: none;
+	color: #fff;
+	text-align: center;
+	display: block;
+	}
+	
+#main-content h2 {
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 300;
+	margin-bottom: 20px;
+	}
+
+
+/*
+Hotel List
+------------------------*/
+
+.sorting { display: none; }
+
+#filter-stick {
+	background: #fff;
+	width: 100%;
+}
+
+#filter-options {
+	float: left;
+	width: 100%;
+  background: #e6e7e8;
+}
+
+#filter-options ul {
+  height: 40px;
+}
+
+#filter-options ul li.filterOption {
+  float: left;
+  width: 49.9%;
+  border-right : 1px solid #ccc;
+}
+#filter-options ul li.filterOption.last {
+	border-right: none;
+	}
+	
+#filter-options ul li.filterOption button {
+  margin: 0;
+  width: 100%;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  padding: 0;
+}
+
+#filterDetails {
+  width: 100%;
+  padding: 0px 0;
+}
+#filterDetails.invisible {
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#filterDetails div.alert.invisible {
+  padding: 0;
+  margin: 0;
+}
+
+#filterDetails div.filterDetail {
+  display: none;
+}
+#filterDetails div.filterDetail.visible {
+  width: 100%;
+  display: block;
+}
+
+#filterDetails div.filterDetail button,
+#filterDetails div.filterDetail span {
+  float: left;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
+  padding: 0 15px;
+}
+
+#filterDetails div.filterDetail.optionList_2 span {
+  float: left;
+  height: 24px;
+  line-height: 24px;
+  width: 24px;
+  font-size: 16px;
+  padding: 0px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+#filterDetails div.filterDetail span {
+  line-height: 35px;
+}
+#filterDetails div.filterDetail.optionList_3 input {
+  margin: 0 3px 0 3px;
+}
+
+
+#filterDetails input {
+	width: 20%;
+	height: 35px;
+    line-height: 35px;
+    border-radius: 0px;
+    margin : 0 10px ;
+  float: left;
+}
+#filterDetails select {
+	width: 20%;
+	 height: 35px;
+    line-height: 35px;
+    border-radius: 0px;	
+     margin : 0 10px ;
+    background-color: #fff;
+  float: left;
+}
+
+//#filter-options > a.dropdown-toggle {
+//	color: #666;
+	//background: #ccc;
+//	display: none;
+//
+//	-webkit-border-radius: 0px;
+//	-moz-border-radius: 0px;
+//	border-radius: 0px;
+//	}
+//
+//.dropdown-menu {
+//	display: block;
+//    float: left;
+//    border: none;
+//    border-radius: 0px;
+//    box-shadow: none;
+//    list-style: none outside none;
+//    margin: 0px 0 0;
+//    padding: 5px 0;
+//    position: relative;
+//    top: auto;
+//    left: auto;
+//    width: 100%;
+//}
+//
+//.dropdown-menu li {
+//	display: inline;
+//	float: left;
+//}
+//
+//.dropdown-menu > li > a {
+//    color: #333333;
+//    display: block;
+//	float: left;
+//    font-weight: normal;
+//    line-height: 20px;
+//    padding: 3px 20px;
+//    white-space: nowrap;
+//}
+
+.fixed #filter-stick{
+	width: 750px;
+}
+
+ul.results-list > li {
+	background: #fff;
+	border: 1px solid #ddd;
+	padding: 10px;
+	margin: 10px 0;		
+	}		
+
+ul.results-list > li:hover {
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:    0px 0px 10px rgba(0, 0, 0, 0.2);
+	box-shadow:         0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hotel-des h3 {
+	margin: 0px;
+	font-size: 22px;
+	line-height: 28px;
+	height: 28px;
+	overflow: hidden;
+	font-weight: 400;
+	}
+
+.hotel-des h4 {
+	margin: 5px 0;
+	font-size: 14px;
+	line-height: 18px;
+	height: 18px;
+	overflow: hidden;
+	color: #333;
+	}
+
+.hotel-price .btn { width: 100%; margin-top: 10px;}
+.hotel-price .big-bold { margin-top: 20px; display: block;}
+.hotel-price .pre-night{
+		margin : 0xp;
+		font-size: 10px;
+		line-height: 12px;
+		text-align: right;
+}
+.star {
+  display: none; /* temporary fix, since API doesn't return the star rating */
+	float: left;
+	width: 89px;
+	height: 16px;
+	display: block;
+	margin-top: 5px;
+	}
+	
+.star.one {background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/1-star.png') left center no-repeat;}
+.star.two {background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/2-star.png') left center no-repeat;}
+.star.three {background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/3-star.png') left center no-repeat;}
+.star.four {background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/4-star.png') left center no-repeat;}
+.star.five {background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/5-star.png') left center no-repeat;}
+		
+ul.results-list .hotel-img {
+	width : 25%;
+	float: left;
+	overflow: hidden;
+	}
+ul.results-list .hotel-img.ng-hide + .hotel-des  {
+  width: 70%;
+}
+ul.results-list .hotel-img img {
+	border: 1px solid #ddd;
+	width: 100%;
+	height: 120px;
+	}
+	
+ul.results-list	.hotel-des {
+	width: 51%;
+	float: left;
+	margin: 0 2%;
+	}
+ul.results-list .hotel-price {
+	width: 20%;
+	float: left;
+
+	}
+	
+ul.amenities-list {
+		margin : 10px 0 0 20px;;
+}
+ul.amenities-list li {
+	padding: 0px 10px 0 0px;
+	margin : 0px;
+	border: 0px;
+	list-style: disc;
+	float: left;
+	width: 140px;
+	font-size: 12px;	
+}
+
+.map-pop{
+	font-size: 12px;
+	color: #0088CC;
+	margin: 0px;
+	}
+.map-pop a{
+	font-size: 12px;
+	color: #0088CC;
+	}
+	
+/* 
+Single Hotel Page
+--------------------------*/
+
+.singlehotel {
+	background: #fff;
+	}
+.singlehotel h1 {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	}
+#pick-room { margin-bottom: 20px;}
+
+#pick-room-wrapper {
+	background: #525b68;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+#pick-room-form {
+		background: #525b68;
+}
+
+.singlehotel .hotel-des {
+	margin-bottom: 20px;
+	}
+
+#pick-room-form {
+	margin-bottom: 10px;
+	}
+#pick-room-form  input, #pick-room-form  select{
+    width: 115px;
+    margin: 0 10px 0 0;
+}
+
+/* #pick-room-form button { line-height: 40px; height: 40px;} */
+
+#map-area a { color: #666;}
+
+
+#map-area p {
+	font-size: 12px;
+	line-height: 16px;
+	color: #666;
+	}
+
+#map-area .info-text { 
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+	margin: 10px 0;
+	}
+	
+#suggested {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+	}
+.suggested-hotel {
+	margin-top: 10px;
+	}
+.suggested-hotel h3 {
+	font-size: 16px;
+	line-height: 24px;
+	margin-top: 10px;
+	}
+.suggested-hotel h4 {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.room-detaillist{
+	margin: 30px 0;
+	}
+
+.singlehotel .room-detaillist h3 {
+	font-weight: bold;
+	font-style:italic;
+	font-size: 20px;
+	color: #525b68;
+	}
+
+.room-detaillist ul {
+	margin-left: 80px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #525b68;
+	}
+		
+.room-detaillist ul li {
+	width: 33%;
+	list-style: disc;
+	float: left;
+	font-size: 12px;
+	line-height: 16px;
+	padding: 5px 0;
+	font-style:italic;
+	}
+	
+/*
+Checkout page
+--------------------------*/
+.checkout-form {
+	padding: 20px 0;
+	border-bottom: 1px solid #ddd;
+	}
+.checkout-form h2 {
+	font-size: 18px;
+	line-height: 30px;
+	margin-bottom: 20px;
+	}
+.round-orange {
+	float: left;
+	margin-right: 20px;
+	background: #f6921e;
+	color: #fff;
+	height: 30px;
+	width: 30px;
+	display: block;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	}
+
+#checkout-form-agree a {
+	color: #666;
+	text-decoration: underline;
+	}
+
+#checkout-form-agree input { width: auto; }
+	
+.round-green {
+	float: left;
+	margin-right: 20px;
+	background: #7ac943;
+	color: #fff;
+	height: 30px;
+	width: 30px;
+	display: block;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	}
+
+.checkout-form input, .checkout-form select{
+	height: 30px;
+	margin-bottom: 5px;
+	
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	
+	}	
+.checkout-form i {
+	color: #333;
+	}
+.checkout-form .control-group {
+	margin-bottom: 10px;
+	}
+
+#checkout-totals {
+	margin: 40px 0;
+	}
+
+#checkout-totals p {
+	font-size: 12px;
+	}
+
+#checkout-totals .btn {
+	width: auto;
+	float: left;
+	margin-top: 20px;
+	}	
+
+#trip-summary {
+	border: 1px solid #ddd;
+	max-width: 280px;
+
+}
+#trip-summary a { color: #666;}
+#trip-summary .accordion-group{
+	border: none;
+	}
+#trip-summary .accordion-heading {
+	background: #ddd;
+	}
+#trip-summary h3 {
+	font-size: 18px;
+	line-height: 22px;
+	}
+.trip-summary-inner {
+	padding: 10px;
+	font-size: 12px;
+	}
+	
+#trip-summary h5 {
+	background: #525b68;
+	color: #fff;
+	line-height: 30px;
+	font-size: 18px;
+	padding: 8px 20px;
+	margin: 0px;
+	text-align: center;
+	}
+
+#trip-summary .tiny-checkout {
+	float: left;
+	width: 75px;
+	height: 75px;
+	margin: 0 10px 10px 0;
+	}
+	
+/*
+Thankyou page
+----------------*/
+#printres-wrapper{
+	border: 1px solid #ccc;
+	max-width: 960px;
+	padding: 20px;
+	margin: 40px 0;
+}
+
+#printres-wrapper .print-logo {
+	float: left;
+}
+#printres-wrapper h4 {
+	text-align: center;
+	font-weight: normal;
+	background-color: #def1d0;
+	font-size: 16px;
+	padding: 10px 0;
+	border-top: 2px solid #ccc;
+	border-bottom: 1px dashed #ccc;
+	margin-bottom: 20px;
+}
+#printres-wrapper #print-logoarea{
+		border-bottom: 1px solid #ccc;
+		padding: 0 0 20px 0;
+		margin : 0 0 20px 0;
+}
+#printres-wrapper #print-logoarea button {
+		float: right;
+}
+#printres-wrapper .details-block {
+	line-height: 1.6em;
+}
+#printres-wrapper .policy-title {
+		margin-top: 40px;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		font-size: 16px;
+		text-align: center;
+		line-height: 24px
+}
+#printres-wrapper .policy-text {
+	font-size: 12px
+}
+
+/*
+Footer
+--------------------------*/
+
+#footer {
+	min-height: 300px;
+	}
+
+#footer .container { 
+	background: transparent;
+	}	
+
+#footer .small {
+	font-size: 10px;
+	}
+	
+#footer a {
+	color: #ddd;
+	}
+#footer a:hover {
+	color: #fff;
+	}
+
+#footer .footer-list li a	{
+	display: block;
+	margin: 3px 0;
+	padding-left: 20px;
+	font-size: 14px;
+	}
+
+#footer #copywrite {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top : 1px solid #394653;
+	color: #ddd;
+	}
+#footer h5	{
+	font-size: 20px;
+	border-bottom : 1px solid #394653;
+	line-height: 26px;
+	padding-bottom: 10px;
+	color: #ddd;
+	}
+
+#site-stamp {
+	float:left;
+	height : 40px;
+	line-height : 40px;
+}
+
+#partner-logo {
+	color: #DDDDDD;
+	width: 350px;
+	float: right;
+	}
+
+/* ANIMATIONS
+/* Alerts, lists, filters
+----------------------------------*/
+.alert,
+.results-list,
+#filterDetails div.filterDetail,
+.animate-results.ng-move,
+.animate-results.ng-enter,
+.animate-results.ng-leave,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.alert.invisible {
+  padding: 0;
+  margin: 0;
+}
+
+.alert.invisible,
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity:0;
+  max-height:0;
+  overflow: hidden;
+}
+
+.alert,
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height:auto;
+}
+
+.animate-show {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  opacity:1;
+}
+
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+  display:block!important;
+}
+
+.animate-show.ng-hide {
+  opacity:0;
+}
+
+.animate-results.ng-leave.ng-leave-active,
+.animate-results.ng-move,
+.animate-results.ng-enter {
+  opacity:0;
+  overflow: hidden;
+}
+
+.animate-results.ng-leave,
+.animate-results.ng-move.ng-move-active,
+.animate-results.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+
+/*
+Validation
+_________________________*/
+ /* still marked invalid! */
+.ng-invalid.ng-valid-required,
+.ng-invalid-required.fixme {
+  border-color: #e9322d !important;
+  -webkit-box-shadow: 0 0 6px #f8b9b7 !important;
+  -moz-box-shadow: 0 0 6px #f8b9b7 !important;
+  box-shadow: 0 0 6px #f8b9b7 !important;
+}
+
+/*
+Date Picker
+--------------------------*/
+
+input.date[readonly] {
+  cursor: pointer;
+}
+
+[date-picker-wrapper] {
+  position: relative !important;
+  display: block;
+  width: 300px;
+}
+
+[date-time-append] [date-picker] {
+  position: relative;
+  margin-right: -1000px;
+  margin-bottom: -1000px;
+}
+
+[date-range] [date-picker] .after.before {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #499dcd;
+  *background-color: #2f6ab4;
+  background-image: -moz-linear-gradient(top, #5bc0de, #2f6ab4);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f6ab4));
+  background-image: -webkit-linear-gradient(top, #5bc0de, #2f6ab4);
+  background-image: -o-linear-gradient(top, #5bc0de, #2f6ab4);
+  background-image: linear-gradient(to bottom, #5bc0de, #2f6ab4);
+  background-repeat: repeat-x;
+  border-color: #2f6ab4 #2f6ab4 #1f4677;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f6ab4', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+[date-range] [date-picker] .after.before:hover,
+[date-range] [date-picker] .after.before:active,
+[date-range] [date-picker] .after.before.active,
+[date-range] [date-picker] .after.before.disabled,
+[date-range] [date-picker] .after.before[disabled] {
+  color: #ffffff;
+  background-color: #2f6ab4;
+  *background-color: #2a5ea0;
+}
+
+[date-range] [date-picker] .after.before:active,
+[date-range] [date-picker] .after.before.active {
+  background-color: #24528c \9;
+}
+
+[date-picker] {
+  padding: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+[date-picker] table {
+  margin: 0;
+}
+
+[date-picker] td,
+[date-picker] th {
+  width: 20px;
+  height: 20px;
+  padding: 4px 5px;
+  text-align: center;
+  border: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+[date-picker] .switch {
+  width: 145px;
+}
+
+[date-picker] span {
+  display: block;
+  float: left;
+  width: 23%;
+  height: 26px;
+  margin: 1%;
+  line-height: 25px;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+[date-picker] span:hover {
+  background: #eeeeee;
+}
+
+[date-picker] span.disabled,
+[date-picker] span.disabled:hover {
+  color: #999999;
+  cursor: default;
+  background: none;
+}
+
+[date-picker] .active,
+[date-picker] .now {
+  color: #ffffff;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #006dcc;
+  *background-color: #0044cc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+[date-picker] .active:hover,
+[date-picker] .now:hover,
+[date-picker] .active:active,
+[date-picker] .now:active,
+[date-picker] .active.active,
+[date-picker] .now.active,
+[date-picker] .active.disabled,
+[date-picker] .now.disabled,
+[date-picker] .active[disabled],
+[date-picker] .now[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+
+[date-picker] .active:active,
+[date-picker] .now:active,
+[date-picker] .active.active,
+[date-picker] .now.active {
+  background-color: #003399 \9;
+}
+
+[date-picker] .now {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #ee735b;
+  *background-color: #ee905b;
+  background-image: -moz-linear-gradient(top, #ee5f5b, #ee905b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#ee905b));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #ee905b);
+  background-image: -o-linear-gradient(top, #ee5f5b, #ee905b);
+  background-image: linear-gradient(to bottom, #ee5f5b, #ee905b);
+  background-repeat: repeat-x;
+  border-color: #ee905b #ee905b #e56218;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffee905b', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+[date-picker] .now:hover,
+[date-picker] .now:active,
+[date-picker] .now.active,
+[date-picker] .now.disabled,
+[date-picker] .now[disabled] {
+  color: #ffffff;
+  background-color: #ee905b;
+  *background-color: #ec8044;
+}
+
+[date-picker] .now:active,
+[date-picker] .now.active {
+  background-color: #e9712d \9;
+}
+
+[date-picker] .disabled {
+  color: #999999 !important;
+  cursor: default;
+  background: none;
+}
+
+[date-picker] [ng-switch-when="year"] span,
+[date-picker] [ng-switch-when="month"] span,
+[date-picker] [ng-switch-when="minutes"] span {
+  height: 54px;
+  line-height: 54px;
+}
+
+[date-picker] [ng-switch-when="date"] td {
+  padding: 0;
+}
+
+[date-picker] [ng-switch-when="date"] span {
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+}
+
+[date-picker] th:hover,
+[date-picker] [ng-switch-when="date"] td span:hover {
+  cursor: pointer;
+  background: #eeeeee;
+}
+
+/*
+Calander Fix
+-------------------*/
+
+.dropdown-menu .disable { background: #f5f5f5;}
+.dropdown-menu { padding: 10px; }
+
+
+	
+/* GALLERY
+--------------------*/
+
+.slider {
+  width: 100%;
+  height: 242px;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  position: relative;
+  background: #e6e6e6;
+  text-align: center;
+  cursor: pointer;
+}
+
+.slide {
+	margin: 0 auto;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 1002;
+  display: block;
+  top: 50%;
+  margin-top: -35px;
+  width: 36px;
+  height: 71px;
+  outline: none;
+  cursor: pointer;
+  background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/blank.gif') no-repeat;
+}
+
+.arrow.prev {
+  opacity: 0.2;
+  left: 20px;
+  background-image: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/paddle_prev_999.png');
+  transition: 0.2s linear all;
+}
+
+.arrow.next {
+  opacity: 0.2;
+  right: 20px;
+  background-image: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/paddle_next_999.png');
+  transition: 0.2s linear all;
+}
+
+.arrow.prev:hover {
+  opacity: 1;
+  background-image: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/paddle_prev_fff.png');
+}
+
+.arrow.next:hover {
+  opacity: 1;
+  background-image: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/paddle_next_fff.png');
+}
+
+/*---------------------------------------------------------
+NAV
+---------------------------------------------------------*/
+
+.slider-nav {
+  display: block;
+  /*height: 48px;  */
+}
+
+.nonDraggableImage{
+  -webkit-user-drag: none;
+}
+
+.slider-nav .wrapper {
+  margin: 0 auto;
+  width: 100%;
+  /*padding: 1em 0 .8em; */
+}
+
+.slider-nav ul {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.slider-nav .thumb, .slider-nav .thumb a {
+  display: inline-block;
+  zoom: 1;
+}
+
+.slider-nav .thumb img {
+	height: 50px;
+	width: 50px;
+	}
+	
+.thumbs .thumb {
+  width: 49px;
+  height: 49px;
+  display: block;
+  float: left;
+  overflow: hidden;
+  padding: 1px;
+
+}
+
+.thumbs .thumb a {
+  overflow: hidden;
+  background: #FFF;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: background-color 0.25s, border-color 0.25s;
+  -moz-transition: background-color 0.25s, border-color 0.25s;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.thumbs .thumb a.active {
+  border-color: #000;
+  background-color: transparent;
+}
+
+/* SwipeBox
+----------------------------*/
+html.swipebox {
+  overflow: hidden!important;
+}
+
+#swipebox-overlay img {
+  border: none!important;
+}
+
+#swipebox-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999!important;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+#swipebox-slider {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  white-space: nowrap;
+  position: absolute;
+  display: none;
+}
+
+#swipebox-slider .item {
+  background: url("//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/loader.gif") no-repeat center center;
+  height: 100%;
+  width: 100%;
+  line-height: 1px;
+  text-align: center;
+  display: inline-block;
+}
+
+#swipebox-slider .item:before {
+  content: "";
+  display: inline-block;
+  height: 50%;
+  width: 1px;
+  margin-right: -1px;
+}
+
+#swipebox-slider .item img,
+#swipebox-slider .item .swipebox-video-container {
+  display: inline-block;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+}
+
+#swipebox-slider .item .swipebox-video-container {
+  background:none;
+  max-width: 1140px;
+  max-height: 100%;
+  width: 100%;
+  padding:5%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+
+#swipebox-slider .item .swipebox-video-container .swipebox-video{
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+
+#swipebox-slider .item .swipebox-video-container .swipebox-video iframe{
+  width: 100%!important;
+  height: 100%!important;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+#swipebox-action, #swipebox-caption {
+  position: absolute;
+  left: 0;
+  z-index: 999;
+  height: 50px;
+  width: 100%;
+}
+
+#swipebox-caption {
+  height: 90px;
+}
+
+#swipebox-action {
+  bottom: -50px;
+}
+#swipebox-action.visible-bars {
+  bottom: 0;
+}
+
+#swipebox-action.force-visible-bars {
+  bottom: 0!important;
+}
+
+#swipebox-caption {
+  top: -90px;
+  text-align: center;
+}
+#swipebox-caption.visible-bars {
+  top: 0;
+}
+
+#swipebox-caption.force-visible-bars {
+  top: 0!important;
+}
+
+#swipebox-action #swipebox-prev, #swipebox-action #swipebox-next,
+#swipebox-action #swipebox-close {
+  background-image: url("//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/icons.png");
+  background-repeat: no-repeat;
+  border: none!important;
+  text-decoration: none!important;
+  cursor: pointer;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+}
+
+#swipebox-action #swipebox-close {
+  background-position: 15px 12px;
+  left: 10px;
+}
+
+#swipebox-action #swipebox-prev {
+  background-position: -32px 13px;
+  right: 70px;
+}
+
+#swipebox-action #swipebox-next {
+  background-position: -78px 13px;
+  right: 10px;
+}
+
+#swipebox-action #swipebox-prev.disabled,
+#swipebox-action #swipebox-next.disabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+}
+
+#swipebox-action #swipebox-description {
+  position: absolute;
+  left: 65px;
+  margin-top: 15px;
+  width: 70%;
+}
+
+#swipebox-caption ul {
+  width: 2000px;
+  top: 13px;
+  position: relative;
+}
+
+#swipebox-caption ul li.item {
+  display: block;
+  float: left;
+  padding: 1px;
+  height: 49px;
+  width: 49px;
+  overflow: hidden;
+  padding: 1px;
+}
+
+#swipebox-caption ul li.item img {
+  width: 100%;
+  height: 100%;
+}
+
+#swipebox-caption {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	}
+	
+#swipebox-slider.rightSpring {
+  -moz-animation: rightSpring 0.3s;
+  -webkit-animation: rightSpring 0.3s;
+}
+
+#swipebox-slider.leftSpring {
+  -moz-animation: leftSpring 0.3s;
+  -webkit-animation: leftSpring 0.3s;
+}
+
+@-moz-keyframes rightSpring {
+  0% {
+    margin-left: 0px;
+  }
+
+  50% {
+    margin-left: -30px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-moz-keyframes leftSpring {
+  0% {
+    margin-left: 0px;
+  }
+
+  50% {
+    margin-left: 30px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes rightSpring {
+  0% {
+    margin-left: 0px;
+  }
+
+  50% {
+    margin-left: -30px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes leftSpring {
+  0% {
+    margin-left: 0px;
+  }
+
+  50% {
+    margin-left: 30px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #swipebox-action #swipebox-close {
+    left: 0;
+  }
+
+  #swipebox-action #swipebox-prev {
+    right: 60px;
+  }
+
+  #swipebox-action #swipebox-next {
+    right: 0;
+  }
+}
+
+
+/* Skin
+--------------------------*/
+#swipebox-overlay {
+  background: #0d0d0d;
+}
+
+#swipebox-action, #swipebox-caption {
+  text-shadow: 1px 1px 1px black;
+  background-color: #0d0d0d;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0d0d0d), color-stop(100%, #000000));
+  background-image: -webkit-linear-gradient(#0d0d0d, #000000);
+  background-image: -moz-linear-gradient(#0d0d0d, #000000);
+  background-image: -o-linear-gradient(#0d0d0d, #000000);
+  background-image: linear-gradient(#0d0d0d, #000000);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95);
+  opacity: 0.95;
+}
+
+#swipebox-action {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#swipebox-caption {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: white!important;
+  font-size: 15px;
+  line-height: 43px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/*
+RESPONSIVE 
+_________________________*/
+
+    /* Large desktop */
+    @media (min-width: 1200px) { 
+     }
+
+    @media (min-width: 768px) { 
+	    #swipebox-overlay {
+	    	width: 600px !important;
+	    	height: 600px !important;
+	    	left: 50%;
+	    	top : 50%;
+	    	margin-left: -300px;
+	    	margin-top : -300px;
+	    	
+			-webkit-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
+			-moz-box-shadow:    0px 0px 40px rgba(0, 0, 0, 0.5);
+			box-shadow:         0px 0px 40px rgba(0, 0, 0, 0.5);
+			
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			}
+     }
+         
+    
+    
+     
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 768px) and (max-width: 979px) { 
+    	
+    	.hotel-des .amenities-list { display: none;}
+		ul.results-list > li { margin: 5px 0;}    	
+    	.hotel-des h3 { font-size: 18px; line-height: 20px; height: 20px;}
+    	.hotel-des h4 { font-size: 14px; line-height: 16px; height: 16px;}
+    	.hotel-price .big-bold { font-size: 32px;}
+    	.hotel-price .btn { font-size: 16px; padding: 3px 5px; width: 100%; margin-top: 10px;}
+		ul.results-list .hotel-img img { height: 100px; }
+     	.fixed #filter-stick{width: 530px;}
+	 	.side-box-content .ob-form input, .side-box-content .ob-form select, .side-box-content .ob-form select option{
+		 	width: 160px;
+		 }
+		#pick-room-form  input, #pick-room-form  select{
+		    width: 100px;
+		    margin: 0 10px 0 0;
+		}
+		
+		#pick-room-form input, #pick-room-form select { width: 80px; }
+
+     }
+     
+    /* Landscape phone to portrait tablet */
+    @media (max-width: 767px) { 
+    	#pageTemplateView #content-wrapper { margin: 0px auto;}
+
+    	.container { padding: 20px 0px; }
+		.container.search { width: 100%; padding: 0 10px}
+		.container.search h1 {  margin: 20px 0;}
+
+    	h1#logo { font-size: 18px; line-height: 40px; margin: 0px 20px; }
+    	#main-content h2 { font-size: 24px; line-height: 26px;}
+    	
+    	#fullwidth-search.ob-form .btn { margin-right: 5px; }
+
+
+    	/* Hotel List */
+    	.hotel-des .amenities-list { display: none;}
+		ul.results-list > li { margin: 5px 0;}    	
+    	.hotel-des h3 { font-size: 18px; line-height: 20px; height: 20px;}
+    	.hotel-des h4 { font-size: 14px; line-height: 16px; height: 16px;}
+    	.hotel-price .big-bold { font-size: 26px; line-height: 26px; margin-top: 0px;}
+    	.hotel-price .btn { font-size: 16px; padding: 3px 5px; width: 100%; margin-top: 10px;}
+		ul.results-list .hotel-img img { height: 90px; }
+
+		.fixed #filter-stick{width: 100%;}
+		#filter-options {float: right; width: auto;}
+		#filter-options > a.dropdown-toggle {display: block;}
+		#filter-options { width: 100%;}
+		#filter-options ul li.filterOption { width: 33%;}
+  		
+		.container.singlehotel { padding: 20px 10px; }	
+		#footer .container { padding: 0 20px;}
+		.dropdown-menu > li > a {
+		    clear: both;
+		    color: #333333;
+		    display: block;
+		    font-weight: normal;
+		    line-height: 20px;
+		    padding: 3px 20px;
+		    white-space: nowrap;
+		}
+		.dropdown-menu {
+		    background-clip: padding-box;
+		    background-color: #FFFFFF;
+		    border: 1px solid rgba(0, 0, 0, 0.2);
+		    border-radius: 6px 6px 6px 6px;
+		    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+		    display: none;
+		    float: left;
+		    left: -5px;
+		    list-style: none outside none;
+		    margin: 2px 0 0;
+		    min-width: 120px;
+		    padding: 5px 0;
+		    position: absolute;
+		    top: 100%;
+		    z-index: 1000;
+		}
+
+		#pick-room-form input, #pick-room-form select { width: 80px; }
+		.room-detaillist ul li { width: 50%; overflow: hidden;}
+		.room-detaillist ul { margin-left: 20px; }
+
+		#trip-summary { max-width: 100%; margin-bottom: 40px; }
+		.checkout-form select, .checkout-form input, #checkout-totals .btn.action  { width: 100%; }
+		
+		#footer .container { padding: 0px;}
+		#footer ul { text-align: left;}
+		#footer h5 {
+			background: #525b68;
+			padding: 0px 20px;
+			font-size: 18px;
+			margin-top: 0px;
+			}
+		#footer ul li { margin-left: 40px;}
+		#site-stamp, #partner-logo {
+			float: none;
+			width: 320px;
+			text-align: center;
+		}	
+		
+		#modal-content {
+			width: 300px;
+			margin: -200px 0 0 -150px;
+		}
+	
+	
+		#trip-summary { float: none; }
+		
+}
+
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) {
+    	
+    	#search-page #content-wrapper { min-height: 420px !important;}
+    	/* Hotel List */
+        .sorting { display: block; }
+		.container.search h1 { font-size: 28px; line-height: 36px; margin: 5px 0;}
+		.container.search h1 img { height: 28px; margin : 0 10px 0 0;}
+		ul.results-list > li {padding: 5px;}    	
+    	.hotel-des .amenities-list { display: none;}
+		ul.results-list > li { margin: 2px 0;}    	
+    	.hotel-des h3 { font-size: 14px; line-height: 16px; height: 32px; margin-bottom: 5px;}
+    	h3.single-hotelname { font-size: 22px; line-height: 32px;}
+    	.hotel-des h4 { font-size: 11px; line-height: 12px; height: 12px;}
+    	.hotel-price .big-bold { font-size: 16px; line-height: 18px;}
+    	.hotel-price .btn { font-size: 12px;  margin-top: 5px;}
+    	ul.results-list .star { width: 100%; background-size: 100% !important;  }
+		ul.results-list .hotel-img img { height: 60px; }
+
+		#checkin-date, #checkout-date { display: none; border: none;}
+		.checkin-wrap ul.dropdown-menu, .checkout-wrap ul.dropdown-menu { padding: 5px; }
+
+		.checkin-wrap ul.dropdown-menu button, .checkout-wrap ul.dropdown-menu button{
+			padding: 3px;
+			font-size: 14px;
+			line-height: 16px;
+		}
+	
+		#fullwidth-search.ob-form .btn.action { margin-right: 0px; }
+		
+		#showRight { height: 50px; width: 50px; text-align: center; line-height: 50px;}
+		#showRight i { font-size: 32px; line-height: 50px;}
+		#site-stamp {font-size: 12px;}
+		#site-stamp, #partner-logo { width: 100%;}
+
+     }
+
+/*------------- EXTERNAL SEARCH ----------------*/
+#external-search-page header,
+#external-search-page nav,
+#external-search-page div#footer,
+#external-search-page div#menu-overlay,
+#external-search-page div#loading-overlay,
+#external-search-page div#modal-overlay,
+#external-search-page header {
+  display: none;
+}
+

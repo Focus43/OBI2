@@ -1,0 +1,63 @@
+<div id="content-wrapper" class="container singlehotel">
+
+    <div class="row-fluid">
+        <div class="span12">
+            <h1> Contact Us </h1>
+        </div>
+    </div><!-- end description row -->
+
+    <div class="row-fluid">
+
+        <div class="span12">
+
+            <div class="alert alert-error invisible" errormsg>
+                <i data-dismiss="alert" class="close fa fa-times"></i>
+                <i class="fa fa-exclamation-triangle"></i> <strong>Error : </strong> Your Credit card was declined.
+            </div>
+            <div class="alert alert-success invisible" successmsg>
+                <i data-dismiss="alert" class="close fa fa-times"></i>
+                <i class="fa fa-exclamation-triangle"></i> <strong>Success : </strong> Your message was sent.
+            </div>
+
+            <form name="contactForm">
+                <div id="contact-form-traveler" class="form-horizontal checkout-form" >
+                    <h2>Traveler Information</h2>
+                    <div class="control-group">
+                        <label class="control-label" for="inputfirstname">*Name</label>
+                        <div class="controls">
+                            <input type="text" id="inputfirstname" placeholder="Name" ng-model="contact.name" required>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputemail">*Email</label>
+                        <div class="controls">
+                            <input type="email" id="inputemail" placeholder="Email" ng-model="contact.email" required>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputphone">*Phone Number</label>
+                        <div class="controls">
+                            <input type="text" id="inputphone" placeholder="Phone Number" ng-model="contact.phone" required>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputmessage">*Message</label>
+                        <div class="controls">
+                            <textarea type="text" id="inputmessage" placeholder="What can we help you with?" ng-model="contact.contents" required> </textarea>
+                        </div>
+                    </div>
+                </div> <!-- end traveler info form -->
+
+
+                <button class="btn action" ng-click="sendMessage(contactForm.$invalid)">Send</button>
+            </form>
+
+        </div> <!-- end checkout form -->
+
+
+    </div><!-- end checkout content -->
+
+</div><!-- /end site wrapper -->

@@ -1,0 +1,132 @@
+<div id="content-wrapper" class="container singlehotel">
+
+    <div class="row-fluid">
+        <div class="span12">
+            <span class="round-green"><i class="fa fa-check"></i></span><h1> Reservation Complete </h1>
+            <p>Thank you {{res.first}} for booking at {{hotel.name}} please print this confirmation for your records. A copy of this confirmation has been emailed to {{res.email}}</p>
+
+            <h4> Your Confirmation number : <b>{{confirmation}}</b></h4>
+        </div>
+    </div>
+
+    <div id="printres-wrapper">
+
+	    <div class="row-fluid">
+	   		<div class="span12">
+	   			<div id="print-logoarea">
+	   				<img src="//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/wt-logo-dark.png" alt="Washington Times" class="print-logo"/>
+	   				<button class="btn action" onclick="javascript:window.print()"> PRINT</button>
+	   				<div class="clear"></div>
+	   				<p class="tar"> Reservation Made on : {{res.reservDate | date: 'MM/dd/yy' }}</p>
+	   			</div>
+	       		<div id="res-address">
+	       			<h3>{{hotel.name}}</h3>
+	       			<p> {{hotel.address1}} <br />
+                        {{hotel.address2}} </p>
+	       			<p class="phone-number">{{hotel.phone}}</p>
+	       		</div>
+	   		</div>
+	   	</div>
+
+	    <div class="row-fluid" id="recept-info">
+	   		<div class="span4 details-block">
+	   			<h4>Guest Information</h4>
+	   			<p>
+	   				<b>Name: </b> {{res.first}} {{res.last}} <br />
+	   				<b>Phone: </b> {{res.phone | formatPhone}} <br />
+	   				<b>Email: </b> {{res.email}} <br />
+	   			</p>
+	   		</div>
+	   		<div class="span4 details-block">
+	    		<h4>Reservation Information</h4>
+	   			<p>
+	   				<b>Confirmation Number: </b> {{confirmation}} <br />
+	   				<b>Check-in: </b> {{res.from | date: 'MM/dd/yy'}} <br />
+	   				<b>Check-out: </b> {{res.to | date: 'MM/dd/yy'}} <br />
+	    			<b>Room Type: </b> {{res.roomType | removePlusSign}} <br />
+	   				<b>No of Units: </b> {{res.rooms}} <br />
+	   				<b>Adults: </b> {{res.adult}} <br />
+	   				<b>Children: </b> {{res.child}} <br />
+	   			</p> 
+	   		</div>
+	   		<div class="span4 details-block">
+	   			<h4>Billing Information</h4>
+	   			<p>
+	   				<b>Card Type: </b> {{res.ccType}} <br />
+	   				<b>Name on Card: </b> {{res.ccName | removePlusSign}} <br />
+	   				<b>Card Number: </b> {{res.ccNumber | formatHiddenCC }} <br />
+	    			<b>Expiration : </b> {{res.ccMonth}}/{{res.ccYear}} <br />
+	   				<b>Price: </b> {{res.price | currency: "$"}} <br />
+	   				<b>Taxes: </b> {{res.tax | currency: "$"}} <br />
+	   				<b>Total: </b> {{res.total | currency: "$"}} <br />
+	   			</p>  
+	   		</div>       		       		
+	   		<div class="clear"></div>
+        	<h2 class="policy-title"> {{hotel.name}} Policies </h2>
+    		<p class="policy-text">
+            <ul>
+                <li ng-repeat="p in hotel.policies">{{p.description}}</li>
+                <div class="clear"></div>
+            </ul>
+    		</p>
+
+	    </div>
+	</div><!-- end printres-wrapper -->
+
+</div><!-- end content wrapper -->
+
+<!-- Google Adwords Conversion Tracking Code for WT Dev Site-->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 1067668124;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "5ONmCOjG8ggQnKWN_QM";
+    var google_conversion_value = {{res.total}};
+    var google_remarketing_only = false;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1067668124/?value={{res.total}}&amp;label=5ONmCOjG8ggQnKWN_QM&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
+<!--<script>-->
+    <!--Analytics.trackTransaction = function (data)-->
+    <!--{-->
+        <!--var _gaq = _gaq || [];-->
+        <!--_gaq.push(['_setAccount', data.trackingCode]);-->
+        <!--_gaq.push(['_setDomainName', 'none']);-->
+        <!--_gaq.push(['_setAllowLinker', true]);-->
+        <!--_gaq.push(['_trackPageview']);-->
+        <!--_gaq.push(['_addTrans',-->
+            <!--data.invoice, // order ID - required (confirmation)-->
+            <!--'Panorama Direct', // affiliation or store name (booking source)-->
+            <!--data.total, // total - required-->
+            <!--data.taxes, // tax-->
+            <!--'', // shipping (n/a)-->
+            <!--data.city, // city-->
+            <!--data.state, // state or province-->
+            <!--data.country // country-->
+        <!--]);-->
+        <!--_gaq.push(['_addItem',-->
+            <!--data.invoice, // order ID - required (confirmation-->
+            <!--data.unitType, // SKU/code - required (room type)-->
+            <!--'', // product name (room #)-->
+            <!--data.from, // category or variation (arrival date?)-->
+            <!--data.total, // unit price - required (total)-->
+            <!--data.rooms // quantity - required (# of rooms)-->
+        <!--]);-->
+        <!--_gaq.push(['_trackTrans']); //submits transaction to the Analytics servers-->
+        <!--(function ()-->
+        <!--{-->
+            <!--var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
+            <!--ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';-->
+            <!--var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);-->
+        <!--})();-->
+    <!--}-->
+<!--</script>-->

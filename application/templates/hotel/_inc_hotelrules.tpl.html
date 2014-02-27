@@ -1,0 +1,26 @@
+<div class="hotel-rules" ng-controller="BookingCtrl">
+    <h2>Payment Information</h2>
+    <span ng-show="rate.rateRules.guarantee">Guarantee Required - {{rate.rateRules.guarantee}}</span>
+    <span ng-show="rate.rateRules.deposit">Deposit Required - {{rate.rateRules.deposit}}</span>
+    <span ng-show="rate.rateRules.prepayment">Prepayment Required - {{rate.rateRules.prepayment}}</span>
+
+    <h2>Cancellation Rules</h2>
+    <span ng-show="rate.cancelInfo.hasFee === 'false'">Free Cancellation</span>
+    <span ng-show="rate.cancelInfo.hasFee === 'true'">Cancellation Fees Apply</span>
+    <span ng-show="rate.cancelInfo.deadline">Cancellation Deadline: {{rate.cancelInfo.deadline}}</span>
+    <span ng-show="rate.rateRules.cancellation">Details: {{rate.rateRules.cancellation}}</span>
+
+    <h2>Check-in and Check-out Times</h2>
+    <span ng-show="rate.rateRules.checkIn">Check-in Time: {{rate.rateRules.checkIn}}</span>
+    <span ng-show="rate.rateRules.checkOut">Check-out Time: {{rate.rateRules.checkOut}}</span>
+
+    <div ng-show="hotelInfo.policies">
+        <h2 class="policy-title"> {{hotelInfo.name}} Policies </h2>
+        <p class="policy-text">
+        <ul>
+            <li ng-repeat="p in hotelInfo.policies">{{p.description}}</li>
+            <div class="clear"></div>
+        </ul>
+        </p>
+    </div>
+</div>

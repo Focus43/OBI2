@@ -1,0 +1,111 @@
+/*
+Washington Times styles
+
+	Dark Blue	:	#091721
+	Med Blue	:	#0b2b3e
+	Dark Grey	:	#525b68
+	light Grey	:	#e6e7e8
+	Orange		:	#f6921e
+	drk red		: 	#6b0c16
+	
+------------------------------*/
+
+h1, h2, h3, h4, h5 {
+	color: #525b68;
+	font-weight: 300;
+	}
+#logo {
+	margin: 0 0 0 20px;
+	text-indent: -99999px;
+	background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/wt-logo-white.png') center center no-repeat;
+	width: 309px;
+	height: 93px;
+	display: block;
+	}
+#ob-fixedheader {
+	background-color : #091721;
+	}
+.ob-main-nav-bar {
+	background-color: #0b2b3e;
+	}
+
+.filterbtn {
+  background: #ffffff;
+  color: #f6921e;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn.action,
+.filterbtn:hover,
+.filterbtn.active {
+	background: #f6921e;
+	color: #fff;
+	
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	}
+.btn.action:hover {
+	background: #faa01e;
+	color: #eee;
+	}
+	
+ul.results-list > li h3, .singlehotel h3  {
+	color: #6b0c16;
+	}
+
+.container.search .suggestions {
+  background: rgb(9, 23, 33); /* Fall-back for browsers that don't support rgba */
+  background: rgba(9, 23, 33, .8);
+}
+
+button { background: #0b2b3e; }
+button:hover { background: #525b68; }
+/* #filter-stick { background: #525b68; }  */
+
+#map-area h5, #suggested h5 {background: #525b68; color: #fff; line-height: 34px; padding: 0 20px; margin: 0px; font-size: 18px;}
+
+	
+#footer {
+	background: #2a3846;
+	color: #fff;
+	}
+
+#wt-logo {
+		display: block;
+		height: 40px;
+		width: 194px;
+		display: inline-block;
+		background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/wt-logo.png') no-repeat center center;
+		text-indent: -9999px;
+		overflow: hidden;
+}
+#ob-logo {
+		display: block;
+		height: 40px;
+		width: 125px;
+		display: inline-block;
+		background: url('//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/css/img/powerdbyOB.png') no-repeat center center;
+		text-indent: -9999px;
+		overflow: hidden;
+		padding-right: 5px;
+		border-right: 1px solid #525b68;
+}
+
+
+    /* Landscape phones and down */
+    @media (max-width: 480px) {
+    	
+		h1#logo {
+			background-size: 100%;
+			margin: 5px;
+			width: 240px;
+			height: 40px;
+			display: block;
+			padding: 5px 0;
+			}
+		#ob-logo, #wt-logo { width: 100%;}
+     }

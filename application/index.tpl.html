@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta name="fragment" content="!" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <title><%- pageTitle %></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+
+    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
+    <link href="/<%= assetPath %>css/OBI2.css" rel="stylesheet">
+    <link href="/<%= assetPath %>css/OBI2_WT.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="obiWan" id="{{pageId}}">
+
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+        <button id="hideLeft"><i class="fa fa-times"></i> CLOSE </button>
+        <!--<div id="sidebar-append" ng-include="mobileSidebarInclude()">-->
+        <!--</div>-->
+    </nav>
+
+    <nav responsive-right-menu class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+        <button id="hideRight"><i class="fa fa-times"></i> CLOSE </button>
+        <ul id="mobile-nav-links">
+            <li><a href="https://mytrip.washingtontimes.com/"> My Trips </a></li>
+
+            <li><a href="/"> Hotels </a></li>
+            <li><a href ng-click="missingFeature()"> Flights </a></li>
+            <li><a href ng-click="missingFeature()"> Rental Cars </a></li>
+            <li><a href ng-click="missingFeature()"> Cruises </a></li>
+            <li><a href ng-click="missingFeature()"> Activities </a></li>
+            <li><a href ng-click="missingFeature()"> Packaging </a></li>
+            <div class="clear"></div>
+        </ul>
+    </nav>
+
+
+    <header id="ob-fixedheader" class="clearfix">
+        <div id="my-trip" class="hidden-phone">
+            <a href="https://mytrip.washingtontimes.com/">My Trips &nbsp; | &nbsp; <i class="fa fa-suitcase"></i></a>
+        </div>
+        <button id="showRight" class="visible-xs"><i class="fa fa-bars"></i></button>
+
+        <h1 id="logo">Washington Times </h1>
+
+        <div class="ob-main-nav-bar hidden-phone" >
+            <ul  id="desktop-nav-links">
+                <li class="active"><a href="/"> Hotels </a></li>
+                <li><a href ng-click="missingFeature()"> Flights </a></li>
+                <li><a href ng-click="missingFeature()"> Rental Cars </a></li>
+                <li><a href ng-click="missingFeature()"> Cruises </a></li>
+                <li><a href ng-click="missingFeature()"> Activities </a></li>
+                <li><a href ng-click="missingFeature()"> Packaging </a></li>
+                <div class="clear"></div>
+            </ul>
+
+            <div class="clear"></div>
+        </div>
+    </header>
+
+    <!-- MAIN PAGE CONTENT -->
+    <div id="pageTemplateView" class="{{pageName | dasherize}}">
+        <ng-view></ng-view>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span3">
+                    <ul class="footer-list">
+                        <h5>Travel Center</h5>
+                        <li><a href="#">Hotels</a></li>
+                        <li><a href="#">Flights <span class="small"> - Coming Soon</span></a></li>
+                        <li><a href="#">Car <span class="small"> - Coming Soon</span></a></li>
+                        <li><a href="#">Cruise <span class="small"> - Coming Soon</span></a></li>
+                        <li><a href="#">Promotions <span class="small"> - Coming Soon</span></a></li>
+                    </ul>
+                </div>
+                <div class="span3">
+                    <ul class="footer-list">
+                        <h5>Reservation Help</h5>
+                        <li><a href ng-click="openLiveChat($event)"><i class="fa fa-comments"></i> Live Chat</a></li>
+                        <li><a href><i class="fa fa-phone"></i> (855) 815-1110</a></li>
+                    </ul>
+                </div>
+                <div class="span3">
+                    <ul class="footer-list">
+                        <h5>Our Policies</h5>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href class="modal-open terms" show-modal-content include-path="/_inc_termscond.html">Terms Of Use</a></li>
+                    </ul>
+                </div>
+                <div class="span3">
+                    <ul class="footer-list tar">
+                        <h5>Technical Support</h5>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div  id="copywrite" class="row-fluid">
+                <div class="span12">
+                    <p id="site-stamp">2014 Washington Times, Inc. All rights reserved.</p>
+                    <p id="partner-logo">
+                    	<a href="http://www.openbook.net/" target="_blank" id="ob-logo">Openbook.com</a>  <a href="http://www.washingtontimes.com/" target="_blank" id="wt-logo">WashingtonTimes.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div><!-- end footer -->
+
+    <div id="menu-overlay" responsive-menu-overlay></div>
+
+    <div id="loading-overlay" class="hide" loading></div>
+
+    <div id="modal-overlay" class='hide' toggle-class="#modal-overlay,hide">
+	    <div id="modal-content">
+            <div id="modal-close" class="close-modal"><i class="fa fa-times"></i> Close </div>
+            <div id="dynamic-content"></div>
+	    </div>
+    </div>
+
+    <div id="gmap" google-maps style="display: none;height: 0;"> </div>
+    <!--<script src="//maps.google.com/maps/api/js?sensor=false"></script>-->
+    <script type="text/javascript" src="<%= assetPath %>js/OBI2.js"></script>
+
+    <!--<div google-analytics> </div>-->
+    <!--<div live-chat> </div>-->
+</body>
+</html>

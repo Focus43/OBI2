@@ -1,0 +1,192 @@
+<div id="content-wrapper" class="container singlehotel">
+
+    <div class="row-fluid">
+        <div class="span12">
+            <h1> Hotels </h1>
+        </div>
+    </div><!-- end description row -->
+
+    <div class="row-fluid">
+        <div id="trip-summary" class="span4 pull-right">
+            <h5> Trip Summary </h5>
+            <div class="trip-summary-inner">
+                <h3>{{hotelInfo.name}}</h3>
+                <div class="star" starify="{{item.hotel.rating}}"></div>
+				<div class="clear"></div>
+				
+				<img class="tiny-checkout" ng-src="{{hotelInfo.thumbnail.url}}"/>
+				<p> {{hotelInfo.address1}} <br />
+                {{hotelInfo.address2}} </p>
+                
+
+<table class="table table-condensed table-striped">
+	<tbody>
+		<tr>
+			<td>Check In:</td>
+			<td class="tar">{{bookingInfo.from | date: 'MM/dd/yy'}}</td>
+		</tr>
+		<tr>
+			<td>Check Out: </td>
+			<td class="tar">{{bookingInfo.to | date: 'MM/dd/yy'}}</td>
+		</tr>
+		<tr>
+			<td>Adults:</td>
+			<td class="tar">{{bookingInfo.adult}}</td>
+		</tr>
+		<tr>
+			<td>Children:</td>
+			<td class="tar">{{bookingInfo.child}}</td>
+		</tr>
+		<tr>
+			<td>{{bookingInfo.rooms}} Room(s):</td>
+			<td class="tar">{{rate.name}}</td>
+		</tr>								
+		<tr>
+			<td>{{nights}} Night(s) :</td>
+			<td class="tar">{{rate.paymentInfo.price | currency: "$"}}</td>
+		</tr>	
+		<tr>
+			<td>Taxes & Fees:</td>
+			<td class="tar">{{rate.paymentInfo.tax | currency: "$"}}</td>
+		</tr>	
+		<tr>
+			<td colspan="2" class="tac"><h3 style="margin-top : 5px; font-weight : bold;">Total: {{rate.paymentInfo.total | currency: "$"}}</h3></td>
+		</tr>
+	</tbody>
+</table>
+    
+ 	            
+                                           
+             </div><!-- end trip summary inner -->
+        </div>	<!-- end trip summary -->
+
+        <div class="span8 pull-left">
+
+            <div class="alert alert-error invisible" errormsg scrollToMe>
+                <button type="button" class="close" hideparent >&times;</button>
+                <i class="fa fa-exclamation-triangle"></i> <span class="message">{{errorMessage}}</span>
+            </div>
+
+            <form name="checkoutForm">
+                <div id="checkout-form-traveler" class="form-horizontal checkout-form" id="traveler-info">
+                    <span class="round-orange"> 1 </span><h2>Traveler Information</h2>
+                    <div class="control-group">
+                        <label class="control-label" for="inputfirstname">*First Name</label>
+                        <div class="controls">
+                            <input type="text" name="first" id="inputfirstname" placeholder="First Name" ng-model="booking.first" required>
+                        </div>
+                        <label class="control-label" for="inputlastname">*Last Name</label>
+                        <div class="controls">
+                            <input type="text" id="inputlastname" placeholder="Last Name" ng-model="booking.last" required>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputemail">*Email</label>
+                        <div class="controls">
+                            <input type="email" id="inputemail" placeholder="Email" ng-model="booking.email"  required oninvalid="this.setCustomValidity('Email is required, and must match.');">
+                        </div>
+
+                        <label class="control-label" for="inputconfirm">*Confirm Email</label>
+                        <div class="controls">
+                            <input type="email" id="inputconfirm" placeholder="Re-Enter Email" ng-model="emailConfirm" equals="{{booking.email}}" required oninvalid="this.setCustomValidity('Email is required, and must match.');">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputphone">*Phone Number</label>
+                        <div class="controls">
+                            <input type="text" id="inputphone" placeholder="Phone Number" ng-model="booking.phone" required>
+                        </div>
+                    </div>
+                </div> <!-- end traveler info form -->
+
+                <div id="checkout-form-payment" class="form-horizontal checkout-form" id="payment-info">
+                    <span class="round-orange"> 2 </span><h2>Payment Information</h2>
+
+                    <div class="control-group">
+                        <label class="control-label" for="paymenttype">*Payment Type</label>
+                        <div class="controls">
+                            <select id="paymenttype" ng-model="booking.ccType" ng-options="d.code as d.name for d in cardTypes" required>
+                                <option style="display:none" value="">-- card type --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="cardnumber">*Card Number</label>
+                        <div class="controls">
+                            <input type="text" id="cardnumber" placeholder="Enter Card Number" ng-model="booking.ccNumber" validatecc required>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputexpire">*Expire Date</label>
+                        <div class="controls">
+                            <select class="span3" name="ccMonth" ng-model="booking.ccMonth" ng-options="m for m in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']" required>
+                                <option style="display:none" value=""> MM </option>
+                            </select>
+                            <select class="span3" name="ccYear" ng-model="booking.ccYear" ng-options="y for y in [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]" required>
+                                <option style="display:none" value=""> YYYY </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputsec">*Digit Security Code </label>
+                        <div class="controls">
+                            <input class="span3" type="text" id="inputsec" ng-model="booking.ccCvv2" required>
+                            <a href="#" tooltip="3 digits on back of card" tooltip-placement="right" title="3 digits on back of card"> <i class="fa fa-question-circle"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputzip">*Billing Address</label>
+                        <div class="controls">
+                            <input type="text" id="inputaddress" ng-model="booking.ccAddress" required>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputzip">*Billing Zip Code</label>
+                        <div class="controls">
+                            <input class="span3" type="text" id="inputzip" ng-model="booking.ccZip" required>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputcardname">*Card Holder Name</label>
+                        <div class="controls">
+                            <input type="text" id="inputcardname"  ng-model="booking.ccName" required>
+                        </div>
+                    </div>
+                </div> <!-- end payment info form -->
+
+
+                <div id="checkout-form-agree" class="form-horizontal checkout-form" id="agree-check">
+                    <span class="round-orange"> 3 </span><h2>Agree & Book Hotel</h2>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="checkit" required> *I accept <a href class="modal-open terms" show-modal-content pre-compile="true" include-path="/_inc_hotelrules.html">{{hotelInfo.name}}'s Rules</a> and <a href class="modal-open terms" show-modal-content include-path="/_inc_termscond.html">Washington Time's Terms of Use.</a>
+                                                               <!-- cancellation info: rate.rateRules.cancellation   rate.rateRules.guarantee -->
+                            </label>
+                        </div>
+                    </div>
+                </div> <!-- end traveler info form -->
+
+                <div id="checkout-totals">
+                    <h4>Deposit Due Now: <!-- {{rate.paymentInfo.deposit | currency: "$"}} --> $0.00</h4>
+                    <p>Clicking the submit button will charge your card <!--{{rate.paymentInfo.deposit | currency: "$"}} --> $0.00 and make your reservation.</p>
+                    <button class="btn action" ng-click="bookNow(checkoutForm.$invalid || !checkit || checkit == 'false')" scroll-to-invalid>
+                        Submit</button>
+                    <div class="clear"></div>
+                </div>
+            </form>
+
+        </div> <!-- end checkout form -->
+
+
+    </div><!-- end checkout content -->
+
+</div><!-- /end site wrapper -->

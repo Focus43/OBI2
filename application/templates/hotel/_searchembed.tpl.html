@@ -1,0 +1,104 @@
+
+<style>
+body { background: #fff;}
+
+#embed-wrapper{
+	width: 300px;
+	height: 250px;
+	overflow: hidden;
+	position: relative;
+	top: 0px;
+	margin: 0 auto;
+	background: #E7E7E7;
+	overflow: hidden;
+	}
+#fullwidth-search fieldset { margin: 0 10px 5px 10px; padding: 0px;}
+#fullwidth-search.ob-form .btn.action {
+	height: 35px;
+	line-height: 35px;
+	}
+input, select, option {
+	background: #fff;
+	}
+
+#checkin-date, #checkout-date { border: none;
+	width: 30px;
+	padding: 4px;
+	height: 28px;
+	margin: -10px 0 0 -33px !important;
+	font-size: 13px;
+	display: inline !important;
+	}
+h1 {
+	color: #333;
+	font-size: 18px;
+	line-height: 24px;
+	margin: 5px 0;
+	}	
+.checkin-wrap, .checkout-wrap { width: 50%; float: left; }
+.checkin-wrap input, .checkout-wrap input, .rooms-wrap select { width: 97%; font-size: 14px;}
+.rooms-wrap { width: 15% ; float: left; }
+
+.checkin-wrap ul.dropdown-menu, .checkout-wrap ul.dropdown-menu { top : 15px !important; left: 35px !important;}
+.checkin-wrap ul.dropdown-menu button, .checkout-wrap ul.dropdown-menu button{
+	padding: 3px;
+	font-size: 14px;
+	line-height: 16px;
+	}
+	
+.location-wrap .typeahead {
+	font-size: 12px;
+	width: 200px;
+	height: 95px;
+	overflow: hidden;
+	}
+
+.location-wrap .typeahead.dropdown-menu > li > a { line-height: 14px; padding: 3px 10px; }
+
+#fullwidth-search.ob-form .btn.action { margin-right: 15px !important;}
+</style>
+
+<div id="embed-wrapper">
+    <div class="row-fluid">
+        <div id="full-content" class="span12">
+			
+			<img src="assets/img/wt-travel-logo.jpg" alt="Washington Times Travel Center" />
+            <h1 class="tac"> Search Hotels</h1>
+
+            <div class="alert alert-info invisible" errormsg >
+                <button type="button" class="close" hideparent >&times;</button>
+                <i class="fa fa-exclamation-triangle"></i> <span class="message">{{errorMessage}}</span>
+            </div>
+
+            <form id="fullwidth-search" class="ob-form" name="hotelLandingSearch">
+                <fieldset>
+                    <div class="location-wrap">
+                        <input id="location" type="text" placeholder="City, Airport" name="location" ng-model="searchParams.location" typeahead="city for city in typeAhead | filter:$viewValue | limitTo:10" typeahead-min-length="3" autocomplete="off" required>
+                    </div>
+
+                    <div class="suggestions animate-show" ng-show="showSuggestions">
+                        <ul>
+                            <span style="color:#fff;">Did you mean...</span>
+                            <li ng-repeat="s in suggestions | limitTo:10">
+                                <a href search-for-suggestion="{{s.pcc}}">{{s.city}}, {{s.state}}, {{s.country}} ({{s.pcc}})</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checkin-wrap">
+                        <input type="text" placeholder="Check In" datepicker-popup="{{format}}" ng-model="searchParams.fromDate" ng-change="updateToDate()" is-open="firstOpened" min="fromMinDate" datepicker-options="dateOptions" name="first" show-weeks='false'  ng-required="true" close-text="Close"/>
+                        <button id="checkin-date" class="btn datePicker" ng-click="openFirst()"><i class="fa fa-calendar"></i></button>
+                    </div>
+                    <div class="checkout-wrap">
+                        <input type="text" placeholder="Check Out" datepicker-popup="{{format}}" ng-model="searchParams.toDate" is-open="secondOpen" min="toMinDate" datepicker-options="dateOptions" name="second" show-weeks='false' ng-required="true" close-text="Close"/>
+                        <button id="checkout-date" class="btn datePicker" ng-click="openSecond()"><i class="fa fa-calendar"></i></button>
+                    </div>
+
+                </fieldset>
+                <a a-disabled="{{hotelLandingSearch.$valid}}" href="{{parentUrl}}/hotels/{{searchParams.location}}/{{searchParams.fromDate | date:'yyyy-MM-dd' }}/{{searchParams.toDate | date:'yyyy-MM-dd'}}/1" class="btn action" analytics-on="click" target="_parent">Search</a>
+                <div class="clear"></div>
+            </form>
+
+        </div>
+    </div><!-- /end row fluid -->
+</div><!-- end embed wrapper -->

@@ -1,0 +1,50 @@
+<div ng-controller="ResultsCtrl">
+    <div class="side-box-content">
+        <form class="ob-form"  name="hotelResultsSearch">
+            <fieldset>
+                <input id="location" type="text" placeholder="Washington DC" name="location" ng-model="searchParams.location"  typeahead="city for city in typeAhead | filter:$viewValue | limitTo:10" typeahead-min-length="3" autocomplete="off" required>
+
+                <div class="suggestions animate-show" ng-show="showSuggestions">
+                    <ul>
+                        <span style="color:#fff;">Did you mean...</span>
+                        <li ng-repeat="s in suggestions | limitTo:10">
+                            <a href search-for-suggestion="{{s.pcc}}">{{s.city}}, {{s.state}}, {{s.country}} ({{s.pcc}})</a>
+                        </li>
+                    </ul>
+                </div>
+                <input type="text" class="date" readonly="true" datepicker-popup="{{format}}" ng-model="searchParams.fromDate" is-open="firstOpened" min="fromMinDate" ng-change="updateToDate()" datepicker-options="dateOptions" show-weeks='false'  ng-required="true" close-text="Close"/>
+                <input type="text" class="date" readonly="true" datepicker-popup="{{format}}" ng-model="searchParams.toDate" is-open="secondOpened" min="toMinDate" datepicker-options="dateOptions" show-weeks='false'  ng-required="true" close-text="Close"/>
+               <select name="rooms"  ng-model="searchParams.rooms" ng-options="r + ' Room(s)' for r in [1,2,3,4,5,6]" required>
+                    <option value="">Rooms</option>
+                </select>
+                <select name="adults"  ng-model="searchParams.adult" ng-options="a + ' Adult(s)' for a in [1,2,3,4,5,6]" required>
+                    <!--<option value="">Adults</option>-->
+                </select>
+                <select name="children"  ng-model="searchParams.child" ng-options="r + ' Children' for r in [0,1,2,3,4,5,6]">
+                    <!--<option value="">Children</option>-->
+                </select>
+            </fieldset>
+            <button ng-click="searchHotels( {}, hotelResultsSearch.$invalid );" class="btn action">Update</button>
+            <div class="clear"></div>
+        </form>
+
+        <form class="ob-form"  name="hotelDistSearch">
+        	<p>Distance From Location</p>
+            <select name="distance"  ng-model="searchParams.distance" ng-options="d + ' Miles' for d in [1, 2, 5, 10, 15, 20, 25]" ng-change="searchHotels();">
+                <option value="">Distance</option>
+            </select>
+        </form>
+    </div>
+    <h3>Amenities</h3>
+    <div class="side-box-content">
+        <ul class="side-links">
+            <li class="animate-repeat" ng-repeat="a in amenities.list | limitTo:amenities.numToShowInAmenList | orderBy:amenities.amenitiesPredicate">
+                <!--TODO: Add ng-class here? ng-class={ fa-square-o: !inParams(a.code), fa-check-square-o: inParams(a.code) } -->
+                <a href class="amenity" toggle-amenities-filter="{{a.code}}"><i class="fa fa-lg" check-for-check="amenities.list" filter-code="{{a.code}}"></i> {{a.name}}</a>
+            </li>
+            <a href toggle-list>more</a>
+            <div class="clear"></div>
+        </ul>
+    </div>
+
+</div>

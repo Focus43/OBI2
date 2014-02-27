@@ -1,0 +1,157 @@
+<div id="content-wrapper" class="container singlehotel">
+
+    <div class="row-fluid">
+        <div class="span12">
+            <h1> Book </h1>
+            <div class="hotel-des">
+                <h3 class="single-hotelname">{{hotel.name}}</h3>
+                <h4>{{hotel.address1}}</h4>
+                <div class="star" starify={{hotel.rating}}></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div><!-- end description row -->
+
+    <div class="row-fluid">
+        <div class="span5">
+
+            <div class="container slider">
+                <img ng-repeat="slide in media | limitTo:21" class="slide slide-animation nonDraggableImage"
+                     ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+                     ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.url}}" width="364" heigth="242" data-url="{{slide.url}}" swipe-box>
+
+                <!--<a class="arrow prev" href="#" ng-click="nextSlide()"></a>-->
+                <!--<a class="arrow next" href="#" ng-click="prevSlide()"></a>-->
+            </div>
+
+            <div class="slider-nav">
+                <div class="wrapper">
+                    <ul class="thumbs">
+                        <li class="thumb" ng-repeat="slide in media | limitTo:21">
+                            <a href ng-class="{'active':isCurrentSlideIndex($index)}"
+                               ng-click="setCurrentSlideIndex($index);"><img ng-src="{{slide.url}}"></a></li>
+                    <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+
+        </div> <!-- end hotel slide show -->
+
+        <div id="map-area" class="span7">
+            <h5>Hotel Information </h5>
+            <div google-map style="width: 100%; height: 130px;"></div>
+            
+            <div class="row-fluid info-text">
+                <div class="span4">
+                    <p><b>Address:</b><br />
+                    {{hotel.address1}}<br>
+                    {{hotel.address2}}</p>
+                </div>
+                <!--<div class="span4">-->
+                    <!--<p><b><a href ng-click="scrollPageToId('amenities')" >Amenities</a></b></p>-->
+                <!--</div>-->
+                <!--<div class="span4">-->
+                    <!--<p><b><a href ng-click="scrollPageToId('policies')">Policies</a></b></p>-->
+                <!--</div>                        -->
+            </div><!-- end hotel info -->
+            
+            <ul class="amenities-list">
+                <li ng-repeat="a in hotel.amenities">{{a.description}}</li>
+                <div class="clear"></div>
+            </ul>
+        </div>	<!-- end map area -->
+    </div><!-- end image / map row -->
+
+    <div class="row-fluid" id="pick-room">
+        <div class="span12">
+            <h2> Choose Your Room </h2>
+            <div class="alert alert-error invisible" errormsg >
+                <button type="button" class="close" hideparent >&times;</button>
+                <i class="fa fa-exclamation-triangle"></i> <span class="message">{{errorMessage}}</span>
+            </div>
+            <div id="pick-room-wrapper">
+                <!-- start refine room search -->
+                <!-- DeskTop Tablet -->
+                <form class="ob-form hidden-phone" id="pick-room-form" name="hotelRoomSearch">
+                    <fieldset>
+                        <!--<input id="location" type="text" placeholder="Washington DC" name="location" ng-model="searchParams.location" required>-->
+                        <input type="text" datepicker-popup="{{format}}" ng-model="searchParams.fromDate" is-open="firstOpened" min="{{fromMinDate}}" ng-change="updateToDate()" datepicker-options="dateOptions" show-weeks='false'  ng-required="true" close-text="Close"/>
+                        <input type="text" datepicker-popup="{{format}}" ng-model="searchParams.toDate" is-open="secondOpened" min="{{toMinDate}}" datepicker-options="dateOptions" show-weeks='false'  ng-required="true" close-text="Close"/>
+                        <select name="rooms"  ng-model="searchParams.rooms" ng-options="r + ' Room(s)' for r in [1,2,3,4,5,6]" required>
+                            <option value="">Rooms</option>
+                        </select>
+                        <select name="adults"  ng-model="searchParams.adult" ng-options="a + ' Adult(s)' for a in [1,2,3,4,5,6]" required>
+                            <option value="">Adults</option>
+                        </select>
+                        <select name="children"  ng-model="searchParams.child" ng-options="r + ' Children' for r in [0,1,2,3,4,5,6]">
+                            <option value="">Children</option>
+                        </select>
+                        <button ng-click="getAvailableRooms(hotelRoomSearch.$invalid);" ng-disabled="hotelRoomSearch.$invalid" class="btn action">Update</button>
+                    </fieldset>
+
+                    <div class="clear"></div>
+                </form>
+
+                <!-- MOBILE Slide open button -->
+                <div class="visible-xs">
+                    <button id="showLeft" responsive-left-menu>Filter Results</button>
+                </div>
+                <!-- end refine room search -->
+
+                <!-- start room list -->
+                <ul class="results-list">
+                    <li ng-repeat="room in rooms">
+                        <div class="tac hotel-img"  ng-show="item.hotel.thumbnail.url">
+                            <img ng-src="{{item.hotel.thumbnail.url}}"/>
+                            <div class="star {{item.hotel.rating}}"></div>
+                        </div>
+                        <div class="hotel-des">
+                         <!--<span ng-show="room.nonSmoking === false" class="ob-icon smoking"></span><span ng-show="room.nonSmoking === true" class="ob-icon nonsmoking"></span>-->
+                           <h3>{{room.name}}</h3>
+                            <h4 ng-show="room.cancelInfo.hasFee === 'false'">No Cancel Fee</h4>
+                            <ul class="amenities-list" >
+                                <li ng-repeat="detail in room.rateRules.details | limitTo:amenityLimit($index)" class="animate-repeat" >{{detail}}</li>
+                                <div class="clear"></div>
+                            </ul>
+                            <h4 ng-show="openDetailIdxs.indexOf($index) !== -1" class="animate-show">{{room.description}}</h4>
+                            <button ng-click="toggleDetails($index, $event);" class="btn action roomdetails">Show Details &nbsp; <i class="fa fa-chevron-right"></i></button>
+                        </div>
+                        <div class="tac hotel-price" style="width : 25%;">
+                            <span class="big-bold">{{room.paymentInfo.pricePerNight | currency: "$"}}</span>
+							<span class="pre-night">AVG PER NIGHT</span>
+                            <button ng-click="goBookThis(room);" class="btn action">Book Now</button>
+                        </div>
+                        <div class="clear"></div>
+                    </li> <!-- end hotel item -->
+                </ul> <!-- end room list -->
+            </div><!-- end pick room wrapper -->
+
+        </div>
+    </div>	<!-- end choose room -->
+
+    <div class="row-fluid room-detaillist" id="amenities" ng-show="hotel.amenities">
+        <div class="span12">
+        <h3>Hotel Amenities </h3>
+        <ul>
+            <li ng-repeat="a in hotel.amenities">{{a.description}}</li>
+	        <div class="clear"></div>
+        </ul>
+        </div>
+    </div>
+    <!--
+       <div class="row-fluid room-detaillist" id="policies" ng-show="{{hotel.policies}}">
+           <div class="span12">
+               <h3>Policies </h3>
+               <ul>
+                   <li ng-repeat="p in hotel.policies">{{p.name}}: {{p.description}}</li>
+                   <div class="clear"></div>
+               </ul>
+
+               <h4 ng-show="hotel.cancelInfo.hasFee === 'false'">No Cancel Fee</h4>
+               <span ng-show="hotel.cancelInfo.deadline">hotel.cancelInfo.deadline</span>
+               <span ng-show="hotel.cancelInfo.policyExists === 'true'">There is a cancellation policy</span>
+           </div>
+       </div>
+   -->
+
+</div><!-- /end site wrapper -->
