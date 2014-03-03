@@ -1,12 +1,12 @@
 <div id="content-wrapper" class="container singlehotel">
 
-    <div class="row-fluid">
-        <div class="span12">
+    <div class="row">
+        <div class="col-md-12">
             <h1> Hotels </h1>
         </div>
     </div><!-- end description row -->
 
-    <div class="row-fluid">
+    <div class="row">
         <div id="trip-summary" class="span4 pull-right">
             <h5> Trip Summary </h5>
             <div class="trip-summary-inner">
@@ -123,10 +123,10 @@
                     <div class="control-group">
                         <label class="control-label" for="inputexpire">*Expire Date</label>
                         <div class="controls">
-                            <select class="span3" name="ccMonth" ng-model="booking.ccMonth" ng-options="m for m in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']" required>
+                            <select class="col-md-3" name="ccMonth" ng-model="booking.ccMonth" ng-options="m for m in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']" required>
                                 <option style="display:none" value=""> MM </option>
                             </select>
-                            <select class="span3" name="ccYear" ng-model="booking.ccYear" ng-options="y for y in [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]" required>
+                            <select class="col-md-3" name="ccYear" ng-model="booking.ccYear" ng-options="y for y in [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]" required>
                                 <option style="display:none" value=""> YYYY </option>
                             </select>
                         </div>
@@ -135,7 +135,7 @@
                     <div class="control-group">
                         <label class="control-label" for="inputsec">*Digit Security Code </label>
                         <div class="controls">
-                            <input class="span3" type="text" id="inputsec" ng-model="booking.ccCvv2" required>
+                            <input class="col-md-3" type="text" id="inputsec" ng-model="booking.ccCvv2" required>
                             <a href="#" tooltip="3 digits on back of card" tooltip-placement="right" title="3 digits on back of card"> <i class="fa fa-question-circle"></i></a>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                     <div class="control-group">
                         <label class="control-label" for="inputzip">*Billing Zip Code</label>
                         <div class="controls">
-                            <input class="span3" type="text" id="inputzip" ng-model="booking.ccZip" required>
+                            <input class="col-md-3" type="text" id="inputzip" ng-model="booking.ccZip" required>
                         </div>
                     </div>
 

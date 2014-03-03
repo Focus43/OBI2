@@ -1,8 +1,7 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
-    // Project configuration.
-    grunt.initConfig({
+    var _initConfigs = {
         // Metadata.
         pkg: grunt.file.readJSON('package.json'),
 
@@ -57,16 +56,16 @@ module.exports = function(grunt) {
         },
 
         concat: {
-          options: {
-            banner: '<%= banner %>',
-            stripBanners: true,
-            separator: ';\n'
-          },
-          build: {
-            src: [
+            options: {
+                banner: '<%= banner %>',
+                stripBanners: true,
+                separator: ';\n'
+            },
+            build: {
+                src: [
 //                '<%= pkg.componentDir %>/jquery/dist/jquery.min.js',
 //                '<%= pkg.componentDir %>/dist/js/bootstrap.min.js',
-                // TODO: only include these if hotel
+                    // TODO: only include these if hotel
 //                'application/js/libraries/jquery.sticky.js',
 //                'application/js/libraries/jquery.swipebox.js',
 //                'application/js/libraries/TweenMax.min.js',
@@ -75,19 +74,20 @@ module.exports = function(grunt) {
 //                'application/js/libraries/angulartics-google-analytics.min.js',
 //                'application/js/libraries/ui-bootstrap-custom-0.7.0.js',
 //                'application/js/libraries/modernizr.custom.js',
-                'application/js/libs/angular.min.js',
-                'application/js/libs/angular-*.min.js',
-                'application/js/libs/angulardir-*.js',
-                'application/js/main.js',
-                'application/js/services.js',
-                'application/js/controllers/base/*.js',
-                'application/js/dependencyproviders.js',
-                'application/js/directives/*.js',
-                'application/js/filters.js',
-                'application/js/configs.js'
-            ],
-            dest: 'builds/dev/assets/js/<%= filename %>.js'
-          }
+
+                    'application/js/libs/angular.min.js',
+                    'application/js/libs/angular-*.min.js',
+                    'application/js/libs/angulardir-*.js',
+                    'application/js/main.js',
+                    'application/js/services.js',
+                    'application/js/controllers/base/*.js',
+                    'application/js/dependencyproviders.js',
+                    'application/js/directives/*.js',
+                    'application/js/filters.js',
+                    'application/js/configs.js'
+                ],
+                dest: 'builds/dev/assets/js/<%= filename %>.js'
+            }
         },
 
         // Strip
@@ -211,55 +211,58 @@ module.exports = function(grunt) {
 
         // Sassy stylesheets
         sass: {
-          dev: {
-            options: {
-              style: 'expanded',
-              debugInfo: false
+            dev: {
+                options: {
+                    style: 'expanded',
+                    debugInfo: false
+                },
+                files: {
+                    'builds/dev/assets/css/<%= filename %>.css': 'application/scss/manifest.scss',
+                    'builds/dev/assets/css/<%= filename %>_<%= pkg.channel %>.css': 'application/themes/<%= pkg.channel %>/style.scss'
+                }
             },
-            files: {
-              'builds/dev/assets/css/<%= filename %>.css': 'application/scss/manifest.scss',
-              'builds/dev/assets/css/<%= filename %>_<%= pkg.channel %>.css': 'application/themes/<%= pkg.channel %>/style.scss'
+            release: {
+                options: {
+                    style: 'compressed'
+                },
+                files: {
+                    'builds/release/assets/css/<%= filename %>.css': 'application/scss/manifest.scss',
+                    'builds/release/assets/css/<%= filename %>_<%= pkg.channel %>.css': 'application/themes/<%= pkg.channel %>/style.scss'
+                }
             }
-          },
-          release: {
-            options: {
-              style: 'compressed'
-            },
-            files: {
-              'builds/release/assets/css/<%= filename %>.css': 'application/scss/manifest.scss',
-              'builds/release/assets/css/<%= filename %>_<%= pkg.channel %>.css': 'application/themes/<%= pkg.channel %>/style.scss'
-            }
-          }
         },
 
         // Watch tasks
         watch: {
-          gruntfile: {
-            files: '<%= jshint.gruntfile.src %>',
-            tasks: ['jshint:gruntfile']
-          },
-          lib_test: {
-            files: '<%= jshint.lib_test.src %>',
-            tasks: ['jshint', 'concat']
-          },
-          sassy_pants: {
-            files: 'application/scss/**/*.scss',
-            tasks: ['sass:dev']
-          },
-          markup: {
-              files: ['application/*.tpl.html', 'application/templates/**/*.tpl.html'],
-              tasks: ['template:dev']
-          },
-          ajax_mocks: {
-              files: ['application/ajax_mocks/*'],
-              tasks: ['copy:dev']
-          },
-          image_assets: {
-              files: ['application/img/*'],
-              tasks: ['copy:dev']
-          }
+            gruntfile: {
+                files: '<%= jshint.gruntfile.src %>',
+                tasks: ['jshint:gruntfile']
+            },
+            lib_test: {
+                files: '<%= jshint.lib_test.src %>',
+                tasks: ['jshint', 'concat']
+            },
+            sassy_pants: {
+                files: 'application/scss/**/*.scss',
+                tasks: ['sass:dev']
+            },
+            markup: {
+                files: ['application/*.tpl.html', 'application/templates/**/*.tpl.html'],
+                tasks: ['template:dev']
+            },
+            ajax_mocks: {
+                files: ['application/ajax_mocks/*'],
+                tasks: ['copy:dev']
+            },
+            image_assets: {
+                files: ['application/img/*'],
+                tasks: ['copy:dev']
+            }
         }
-    });
+    };
+
+    // Project configuration.
+    grunt.initConfig(_initConfigs);
 
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-bowercopy');
@@ -278,5 +281,15 @@ module.exports = function(grunt) {
     // Tasks
     grunt.registerTask('default', ['jshint', 'concat', 'sass:dev', 'template:dev', 'copy:dev']);
     grunt.registerTask('release', ['bowercopy','jshint', 'concat', 'strip', 'uglify', 'sass:release', 'template:release', 'copy:release', 'bump']);
+
+    grunt.registerTask('target', 'Build for target: ', function( _channel ){
+        var _settings = grunt.file.readJSON('application/themes/' + _channel + '/build_settings.json');
+        if( _settings ){
+            console.log(_settings);
+//            _initConfigs.concat.files = [''];
+        }else{
+            console.log("CHANNEL NOT FOUND!");
+        }
+    });
 
 };

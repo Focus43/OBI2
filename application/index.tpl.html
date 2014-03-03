@@ -24,8 +24,7 @@
 
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
         <button id="hideLeft"><i class="fa fa-times"></i> CLOSE </button>
-        <!--<div id="sidebar-append" ng-include="mobileSidebarInclude()">-->
-        <!--</div>-->
+        <!--<div id="sidebar-append" ng-include="mobileSidebarInclude()"></div>-->
     </nav>
 
     <nav responsive-right-menu class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
@@ -75,7 +74,7 @@
     <div id="footer">
         <div class="container">
             <div class="row-fluid">
-                <div class="span3">
+                <div class="col-md-3">
                     <ul class="footer-list">
                         <h5>Travel Center</h5>
                         <li><a href="#">Hotels</a></li>
@@ -85,21 +84,21 @@
                         <li><a href="#">Promotions <span class="small"> - Coming Soon</span></a></li>
                     </ul>
                 </div>
-                <div class="span3">
+                <div class="col-md-3">
                     <ul class="footer-list">
                         <h5>Reservation Help</h5>
                         <li><a href ng-click="openLiveChat($event)"><i class="fa fa-comments"></i> Live Chat</a></li>
                         <li><a href><i class="fa fa-phone"></i> (855) 815-1110</a></li>
                     </ul>
                 </div>
-                <div class="span3">
+                <div class="col-md-3">
                     <ul class="footer-list">
                         <h5>Our Policies</h5>
                         <li><a href="/privacy">Privacy Policy</a></li>
                         <li><a href class="modal-open terms" show-modal-content include-path="/_inc_termscond.html">Terms Of Use</a></li>
                     </ul>
                 </div>
-                <div class="span3">
+                <div class="col-md-3">
                     <ul class="footer-list tar">
                         <h5>Technical Support</h5>
                         <li><a href="/faq">FAQ</a></li>
@@ -131,7 +130,7 @@
 
     <div id="gmap" google-maps style="display: none;height: 0;"> </div>
     <!--<script src="//maps.google.com/maps/api/js?sensor=false"></script>-->
-    <script type="text/javascript" src="<%= assetPath %>js/OBI2.js"></script>
+    <script type="text/javascript" src="/<%= assetPath %>js/OBI2.js"></script>
 
     <!--<div google-analytics> </div>-->
     <!--<div live-chat> </div>-->

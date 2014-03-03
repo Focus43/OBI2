@@ -156,6 +156,70 @@
         };
     }]);
 
+    /**
+     * @note sticky bar
+     * Thanks to https://github.com/d-oliveros/angular-sticky
+     */
+    angular.module('obiWan').directive('sticky', ['$timeout', function($timeout){
+            return {
+                restrict: 'A',
+                scope: {
+                    offset: '@'
+                },
+                link: function($scope, $elem, $attrs){
+                    $timeout(function(){
+                        var offsetTop = $scope.offset || 0,
+                            $window = angular.element(window),
+                            doc = document.documentElement,
+                            initialPositionStyle = $elem.css('position'),
+                            stickyLine,
+                            scrollTop;
+
+
+                        // Set the top offset
+                        //
+                        $elem.css('top', offsetTop+'px');
+
+
+                        // Get the sticky line
+                        //
+                        function setInitial(){
+                            stickyLine = $elem[0].offsetTop - offsetTop;
+                            checkSticky();
+                        }
+
+                        // Check if the window has passed the sticky line
+                        //
+                        function checkSticky(){
+                            scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+
+                            if ( scrollTop >= stickyLine ){
+                                $elem.css('position', 'fixed');
+                            } else {
+                                $elem.css('position', initialPositionStyle);
+                            }
+                        }
+
+
+                        // Handle the resize event
+                        //
+                        function resize(){
+                            $elem.css('position', initialPositionStyle);
+                            $timeout(setInitial);
+                        }
+
+
+                        // Attach our listeners
+                        //
+                        $window.on('scroll', checkSticky);
+                        $window.on('resize', resize);
+
+                        setInitial();
+                    });
+                }
+            };
+        }]);
+
     // APP SPECIFIC DIRECTIVES
 
     /**
@@ -215,7 +279,7 @@
             restrict : "A",
             link : function(scope, element, attrs) {
                 window.onscroll = function (e) {
-                    if ( element.context.scrollHeight - window.pageYOffset < 340 ) {
+                    if ( element[0].scrollHeight - window.pageYOffset < 340 ) {
 //                        angular.element( document.querySelectorAll("#loadingMore") ).toggleClass("invisible");
                         scope.$apply( function () {
                             scope.results.lazyCount += 10;
@@ -517,12 +581,11 @@
         };
     });
 
-    // TODO: these are all using jquery, so they shoudl be updated (I just copied and pasted TMBR code here...)
-    angular.module('obiWan').directive("sticky", function() {
-        return function(scope, element, attrs) {
-            $(element).sticky({ topSpacing: 0, className:"fixed" });
-        };
-    });
+//    angular.module('obiWan').directive("sticky", function() {
+//        return function(scope, element, attrs) {
+//            $(element).sticky({ topSpacing: 0, className:"fixed" });
+//        };
+//    });
 
     angular.module('obiWan').directive("responsiveRightMenu", ['$anchorScroll', function($anchorScroll) {
 

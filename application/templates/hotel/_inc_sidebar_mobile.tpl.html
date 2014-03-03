@@ -12,8 +12,8 @@
                         </li>
                     </ul>
                 </div>
-                <input type="text" class="date" readonly="true" datepicker-popup="{{format}}" ng-model="searchParams.fromDate" is-open="firstOpened" min="fromMinDate" ng-change="updateToDate()" datepicker-options="dateOptions" show-weeks='false'  ng-required="true" close-text="Close"/>
-                <input type="text" class="date" readonly="true" datepicker-popup="{{format}}" ng-model="searchParams.toDate" is-open="secondOpened" min="toMinDate" datepicker-options="dateOptions" show-weeks='false'  ng-required="true" close-text="Close"/>
+                <input type="text" class="date" readonly="true" ng-model="searchParams.fromDate" ng-change="updateToDate()" data-min-date="today" bs-datepicker  ng-required="true"/>
+                <input type="text" class="date" readonly="true" ng-model="searchParams.toDate" data-min-date="toMinDate" bs-datepicker ng-required="true"/>
                <select name="rooms"  ng-model="searchParams.rooms" ng-options="r + ' Room(s)' for r in [1,2,3,4,5,6]" required>
                     <option value="">Rooms</option>
                 </select>

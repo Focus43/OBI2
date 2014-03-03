@@ -1,0 +1,6 @@
+{
+    "channel"     : "WT",
+    "components"  : [
+        "air", "hotel"
+    ]
+}

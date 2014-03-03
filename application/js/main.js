@@ -66,12 +66,13 @@
         // TODO: update html and css to handle the sidebar correctly instead
         $rootScope.mobileSidebarInclude = function () {
             console.log("mobileSidebarInclude");
+            console.log($rootScope.pageId);
             if ($rootScope.pageId === 'results-page') {
-                return '/_inc_sidebar_mobile.html';
+                return '/templates/hotel/_inc_sidebar_mobile.html';
             } else if ($rootScope.pageId === 'detail-page') {
-                return '/_inc_detailSidebar_mobile.html';
+                return '/templates/hotel/_inc_detailSidebar_mobile.html';
             } else {
-                return '/_inc_empty.html';
+                return '/templates/base/_inc_empty.html';
             }
         };
 

@@ -64,7 +64,7 @@ a:hover {
 }
 
 li { list-style: none;}
-ul { margin: 0px; }
+ul { margin: 0px; padding: 0; }
 
 h1, h2, h3, h4 {
 	margin: 0px;
@@ -787,6 +787,10 @@ Hotel List
 
 .fixed #filter-stick{
 	width: 750px;
+}
+
+ul.results-list {
+  padding-left: 0;
 }
 
 ul.results-list > li {
@@ -1584,6 +1588,7 @@ NAV
 .slider-nav ul {
   margin: 10px 0;
   width: 100%;
+  padding: 0;
 }
 
 .slider-nav .thumb, .slider-nav .thumb a {
