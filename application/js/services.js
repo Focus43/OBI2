@@ -20,22 +20,29 @@ var openbookService = angular.module('openbookService', ['ngRoute', 'ngResource'
 
         // routes
         $routeProvider.when('/', {templateUrl: 'templates/hotel/_search.html', controller: 'SearchCtrl'})
+            .when('/external', {templateUrl: '/templates/hotel/_searchembed.html', controller: 'SearchCtrl'})
             .when('/hotels/:location/:from/:to/:rooms', {templateUrl: '/templates/hotel/_list.html', controller: 'ResultsCtrl'})
             .when('/detail/:providerCode/:chainId/:hotelId/:from/:to', {templateUrl: '/templates/hotel/_hotel_detail.html', controller: 'HotelDetailCtrl'})
             .when('/checkout', {templateUrl: '/_checkout.html', controller: 'BookingCtrl'})
             .when('/thankyou/:confirmation', {templateUrl: '/templates/hotel/_thankyou.html', controller: 'ConfirmationCtrl'})
+
+            .when('/air', {templateUrl: '/templates/air/_search.html', controller: 'AirSearchCtrl'})
+            .when('/air/flights', {templateUrl: '/templates/air/_list.html', controller: 'AirResultsCtrl'})
+
             .when('/contact', {templateUrl: '/base/_contact.html', controller: 'ContactCtrl'})
-            .when('/external', {templateUrl: '/templates/hotel/_searchembed.html', controller: 'SearchCtrl'})
             .when('/faq', {templateUrl: '/templates/base/_faq.html', controller: 'StaticCtrl'})
             .when('/privacy', {templateUrl: '/templates/base/_privacy.html', controller: 'StaticCtrl'})
             .otherwise({redirectTo: '/'});
     }]).
     factory('Search', ['$resource', function( $resource ) {
-        var Search = $resource( OBI.rootUrl + '/hotels/location/:urlLocation', { urlLocation:'@location' }, {
-            hotelSearch: { method: "GET" }
+        var Search = $resource( OBI.airRootUrl + '/:searchtype/:prefix/:urlLocation', { searchtype: '@searchtype', prefix: '@prefix', urlLocation:'@location' }, {
+            hotelSearch: { method: "GET" },
+            flightSearch: { method: "GET" }
         });
 
         Search.prototype.hotelSearch = function (config, cb) {
+            config.searchtype = 'hotels';
+            config.prefix = 'location';
             config.from = OBI.convertToAPIDate(config.fromDate);
             config.to = OBI.convertToAPIDate(config.toDate);
 
@@ -47,6 +54,19 @@ var openbookService = angular.module('openbookService', ['ngRoute', 'ngResource'
             delete query.fromDate;
             delete query.toDate;
             return Search.hotelSearch(query,
+                angular.extend({}, this, {_id:undefined}), cb);
+        };
+
+        Search.prototype.flightSearch = function (config, cb) {
+            config.searchtype = 'air';
+            config.prefix = 'availability';
+            config.departureDate = OBI.convertToAPIDate(config.fromDate);
+            config.returnDate = OBI.convertToAPIDate(config.toDate);
+
+            var query = angular.copy(config);
+            delete query.fromDate;
+            delete query.toDate;
+            return Search.flightSearch(query,
                 angular.extend({}, this, {_id:undefined}), cb);
         };
 

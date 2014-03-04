@@ -1,0 +1,79 @@
+<!--<style>-->
+    <!--.animate-show {-->
+        <!---webkit-transition:all linear 0.5s;-->
+        <!--transition:all linear 0.5s;-->
+        <!--line-height:20px;-->
+        <!--opacity:1;-->
+        <!--height: 100%-->
+    <!--}-->
+
+    <!--.animate-show.ng-hide {-->
+        <!--line-height:0;-->
+        <!--opacity:0;-->
+    <!--}-->
+
+    <!--.animate-show.ng-hide-add,-->
+    <!--.animate-show.ng-hide-remove {-->
+        <!--display:block!important;-->
+    <!--}-->
+<!--</style>-->
+
+<div id="content-wrapper" class="container search" full-screen={{setHeight}}>
+    <div class="row">
+        <div id="full-content" class="col-md-12">
+
+            <h1 class="tac"><img src="//washingtontimes-yellowstonehotel.netdna-ssl.com/assets/img/search-icon2.png" alt="" /> Search Hotels </h1>
+
+            <div class="alert alert-info invisible" errormsg >
+                <button type="button" class="close" hideparent >&times;</button>
+                <i class="fa fa-exclamation-triangle"></i> <span class="message">{{errorMessage}}</span>
+            </div>
+
+            <form id="fullwidth-search" class="ob-form" name="airLandingSearch">
+                <fieldset>
+                    <div class="location-wrap">
+                        <label> Origin : </label>
+                        <input id="location" type="text" placeholder="City, Airport" name="origin" ng-model="searchParams.origin" ng-options="city for city in typeAhead | filter:$viewValue | limitTo:10" data-min-length="3" bs-typeahead required>
+                    </div>
+
+                    <div class="location-wrap">
+                        <label> destination : </label>
+                        <input id="destination" type="text" placeholder="City, Airport" name="destination" ng-model="searchParams.destination" ng-options="city for city in typeAhead | filter:$viewValue | limitTo:10" data-min-length="3" bs-typeahead required>
+                    </div>
+
+                    <div class="suggestions animate-show" ng-show="showSuggestions">
+                        <ul>
+                            <span style="color:#fff;">Did you mean...</span>
+                            <li ng-repeat="s in suggestions | limitTo:10">
+                                <a href search-for-suggestion="{{s.pcc}}">{{s.city}}, {{s.state}}, {{s.country}} ({{s.pcc}})</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checkin-wrap third">
+                        <label> Check-In : </label>
+                        <!--<input type="text" class="date" readonly="true" placeholder="Check In" datepicker-popup="{{format}}" ng-model="searchParams.fromDate" ng-change="updateToDate()" is-open="firstOpened" min="fromMinDate" datepicker-options="dateOptions" name="first" show-weeks='false'  ng-required="true" close-text="Close"/>-->
+                        <input type="text" class="date" name="fromDate" readonly="true" placeholder="Check In" ng-model="searchParams.fromDate" ng-change="updateToDate()" data-min-date="today" bs-datepicker ng-required="true" />
+                        <button id="checkin-date" class="btn datePicker" ng-click="'function ($event) {$event.preventDefault();}' " ng-model="searchParams.fromDate" open-datepicker="sibling"><i class="fa fa-calendar"></i></button>
+                    </div>
+                    <div class="checkout-wrap third">
+                        <label> Check-Out : </label>
+                        <!--<input type="text" class="date" readonly="true" placeholder="Check Out" datepicker-popup="{{format}}" ng-model="searchParams.toDate" is-open="secondOpen" min="toMinDate" datepicker-options="dateOptions" name="second" show-weeks='false' ng-required="true" close-text="Close"/>-->
+                        <input type="text" class="date" name="toDate" readonly="true" placeholder="Check Out" ng-model="searchParams.toDate" data-min-date="toMinDate" bs-datepicker ng-required="true" />
+                        <button id="checkout-date" class="btn datePicker"  open-datepicker="sibling"><i class="fa fa-calendar"></i></button>
+                    </div>
+                    <div class="rooms-wrap third">
+                        <label> type :</label>
+                        <select name="type"  ng-model="searchParams.type" ng-options="'type: ' + r for r in ['one', 'two', 'multi']" required>
+                            <option value="">Type</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <button a-disabled="{{airLandingSearch.$valid}}" ng-click="searchFlights(airLandingSearch.$invalid);" class="btn action" analytics-on="click">Search</button>
+                <div class="clear"></div>
+            </form>
+                <div class="clear"></div>
+
+        </div>
+    </div><!-- /end row fluid -->
+</div><!-- /end site wrapper -->

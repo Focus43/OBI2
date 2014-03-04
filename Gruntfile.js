@@ -81,6 +81,8 @@ module.exports = function(grunt) {
                     'application/js/main.js',
                     'application/js/services.js',
                     'application/js/controllers/base/*.js',
+                    'application/js/controllers/air/*.js',
+//                    'application/js/controllers/hotel/*.js',
                     'application/js/dependencyproviders.js',
                     'application/js/directives/*.js',
                     'application/js/filters.js',
@@ -142,6 +144,7 @@ module.exports = function(grunt) {
                     TypeAheadArray: true,
                     SnapEngage: true,
                     OBI: true,
+                    obiWan: true,
                     // jqLite addons
                     jqLite: true,
                     camelCase: true,
@@ -149,7 +152,7 @@ module.exports = function(grunt) {
                 }
             },
             gruntfile: {src: 'Gruntfile.js'},
-            lib_test: {src: ['application/js/*.js', 'application/js/directives/*.js']}
+            lib_test: {src: ['application/js/*.js', 'application/js/directives/*.js', 'application/js/controllers/**/*.js']}
         },
 
         // HTML template variables

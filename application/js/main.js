@@ -10,6 +10,7 @@
 
     var OBI = {
         rootUrl: "https://dev-api.openbook.net/api/gds",
+        airRootUrl: "https://dev-api2.openbook.net/api/gds",
         homeUrl: "http://openbook.vpsdevsite.com/",
         defaultDistance: 5,
         resultsAtaTime: 20,
